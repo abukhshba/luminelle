@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
     public function login(){
 
-        return view('Admin.Login', [
+        return view('admin.Login', [
             'page_title' => 'تسجيل الدخول'
         ]);
     }
@@ -46,8 +47,8 @@ class LoginController extends Controller
 
 
     public function logout(){
-        auth()->guard('admin')->logout();
-        return redirect()->route('dashboard.home');
+        Auth::logout();
+        return redirect('/dashboard/login');
 
     }
 }

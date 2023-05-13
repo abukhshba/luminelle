@@ -48,10 +48,7 @@ class LoginController extends Controller
      *
      * @return string
      */
-    public function username()
-    {
-        return 'email';
-    }
+   
 
     /**
      * Handle a login request to the application.
@@ -83,7 +80,7 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $request->validate([
-            $this->username() => 'required|string',
+            'email' => 'required|string',
             'password' => 'required|string',
         ]);
     }

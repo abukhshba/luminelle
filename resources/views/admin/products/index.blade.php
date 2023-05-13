@@ -7,7 +7,7 @@
             <form method="post" action="{{route('dashboard.products.store')}}" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">اضافة مدير جديد</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">اضاف جديد</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> اضافة المدير </button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> اضافة المنتج </button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">إغلاق</button>
                     </div>
                 </div>
