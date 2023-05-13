@@ -1,0 +1,48 @@
+Users:
+
+Registration page
+Login page
+Profile page
+Account settings page
+Password reset page
+Products:
+
+Products listing page
+Product details page
+Product creation page
+Product editing page
+Product deletion confirmation page
+Categories:
+
+Categories listing page
+Category creation page
+Category editing page
+Category deletion confirmation page
+Reviews:
+
+Product review listing page
+Review creation page
+Review editing page
+Review deletion confirmation page
+Orders:
+
+Order checkout page
+Order confirmation page
+Order history page
+Order details page
+Order Items:
+
+Order items listing page
+Order item deletion confirmation page
+Roles:
+
+Roles listing page
+Role creation page
+Role editing page
+Role deletion confirmation page
+Role Users:
+
+Role users listing page
+Role user creation page
+Role user editing page
+Role user deletion confirmation page
