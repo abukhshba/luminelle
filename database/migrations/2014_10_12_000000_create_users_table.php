@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone');
-            $table->unsignedBigInteger('address_id');
             $table->string('address');
             $table->rememberToken();
             $table->softDeletes();

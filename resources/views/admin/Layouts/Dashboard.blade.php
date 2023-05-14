@@ -24,8 +24,8 @@
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/favicons/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/favicons/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicons/favicon-16x16.png')}}">
+    {{-- <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/favicons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicons/favicon-16x16.png')}}"> --}}
     <link rel="manifest" href="{{asset('assets/images/favicons/site.webmanifest')}}">
     <link rel="mask-icon" href="{{asset('assets/images/favicons/safari-pinned-tab.svg')}}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -400,13 +400,21 @@
                                 </li>
 
                                 <li class="dropdown main-profile-menu nav nav-item nav-link">
+                                    <a class="profile-user d-flex" href=""><img alt="" src=""></a>
                                     <div class="dropdown-menu">
                                         <div class="main-header-profile bg-primary p-3">
                                             <div class="d-flex wd-100p">
+                                                {{-- <div class="main-img-user"><img alt="" src="{{get_user_image()}}" class=""></div> --}}
 
-                                                {{-- <div class="ms-3 my-auto">
-                                                    <h6>{{$adminName}}</h6>
-                                                </div> --}}
+                                                <div class="ms-3 my-auto">
+                                                    <h6>
+
+                                                    @if (Auth::guard('admin')->check())
+                                                        {{ Auth::guard('admin')->user()->name }}
+                                                    @endif
+
+                                                    </h6>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -419,7 +427,7 @@
                                         </form>
                                     </div>
                                 </li>
-                            </ul>
+                 
                         </div>
                     </div>
                 </div>
@@ -505,13 +513,13 @@
     <!--/Sidebar-right-->
 
     <!-- Footer opened -->
-    <div class="main-footer ht-45">
+    {{-- <div class="main-footer ht-45">
         <div class="container-fluid pd-t-0 ht-100p">
             <a href="https://droos.live" target="_blank">
                 <img class="droos-logo" style="max-height: 25px" src="{{asset('assets/images/brand/droos.live.gif')}}" alt="" />
             </a>
         </div>
-    </div>
+    </div> --}}
     <!-- Footer closed -->
 
 </div>

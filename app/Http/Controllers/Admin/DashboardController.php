@@ -19,13 +19,16 @@ class DashboardController extends Controller
 
 
         $products = Product::count();
-        $adminName = Auth::user()->name;        
+        if (Auth::check()) {
+            $adminName = Auth::user()->name;
+        } else {
+            $adminName = 'Guest';
+        }        
         $categories = Category::count();
         $admins = Admin::all();
 
         $usersCount = User::count();
         $ordersCount = Order::count();
-        $revenue = Order::sum('total_amount');
        
 
       
@@ -35,7 +38,6 @@ class DashboardController extends Controller
             'products' => $products,
             'categories' => $categories,
             'orders' => $ordersCount,
-            'revenue' => $revenue,
             'orders' => $ordersCount,
             'adminName' => $adminName,
             'admins' => $admins,

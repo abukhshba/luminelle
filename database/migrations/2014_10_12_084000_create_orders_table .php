@@ -15,10 +15,17 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->double('total_price');
-            $table->bigInteger('total_amount');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('product_id'); // n
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+
+            $table->double('amount');
+            $table->bigInteger('price');
+            $table->double('discount');
+            $table->double('total_price');
+            $table->date('reservation_date');
+            $table->boolean('is_paid')->nullable()->default('0');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +38,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('orders');
     }
 }
