@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\ReviewController;
 use \Illuminate\Support\Facades\Route;
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
@@ -74,18 +76,30 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/{order}', [OrderController::class, 'show'])->name('orders.show');
         Route::get('/{order}/edit', [OrderController::class, 'edit'])->name('orders.edit');
         Route::put('/{order}', [OrderController::class, 'update'])->name('orders.update');
+        Route::get('/orders/{id}/invoice', [OrderController::class, 'showInvoice'])->name('orders.invoice');
         Route::delete('/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
     });
 
-    //ordersItems
-    Route::prefix('categories')->group(function () {
-        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
-        Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
-        Route::post('', [CategoryController::class, 'store'])->name('categories.store');
-        Route::get('/{category}', [CategoryController::class, 'show'])->name('categories.show');
-        Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-        Route::put('/{category}', [CategoryController::class, 'update'])->name('categories.update');
-        Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    //payments
+    Route::prefix('payments')->group(function () {
+        Route::get('/', [PaymentController::class, 'index'])->name('payments.index');
+        Route::get('/create', [PaymentController::class, 'create'])->name('payments.create');
+        Route::post('', [PaymentController::class, 'store'])->name('payments.store');
+        Route::get('/{payment}', [PaymentController::class, 'show'])->name('payments.show');
+        Route::get('/{payment}/edit', [PaymentController::class, 'edit'])->name('payments.edit');
+        Route::put('/{payment}', [PaymentController::class, 'update'])->name('payments.update');
+        Route::delete('/{payment}', [PaymentController::class, 'destroy'])->name('payments.destroy');
+    });
+
+    //reviews
+    Route::prefix('reviews')->group(function () {
+        Route::get('/', [ReviewController::class, 'index'])->name('reviews.index');
+        Route::get('/create', [ReviewController::class, 'create'])->name('reviews.create');
+        Route::post('', [ReviewController::class, 'store'])->name('reviews.store');
+        Route::get('/{review}', [ReviewController::class, 'show'])->name('reviews.show');
+        Route::get('/{review}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+        Route::put('/{review}', [ReviewController::class, 'update'])->name('reviews.update');
+        Route::delete('/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
     });
 });
 
