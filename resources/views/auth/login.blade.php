@@ -231,6 +231,9 @@
         </div>
 
         <button type="submit" class="login-btn">تسجيل الدخول</button>
+        <div class="sec-2">
+            <p>ليس لديك حساب! <a style="text-decoration: none ; font-weight: 560" href="{{route('register')}}"><span>سجل الان</span></a></p>
+        </div>
     </div>
 
     {{-- <div class="text-center">

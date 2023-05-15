@@ -159,11 +159,12 @@
                     <div class="table-responsive">
                         <table class="table table-striped mg-b-0 text-md-nowrap dl-table" id="basic-datatable">
                             <thead>
-                            <tr>
+                            <tr style="text-align: center">
                                 <th>#</th>
                                 <th class="border-bottom-0">اسم المنتج</th>
                                 <th class="wd-3p border-bottom-0"> الوصف</th>
                                 <th class="wd-3p border-bottom-0">السعر  </th>
+                                <th class="wd-3p border-bottom-0">متوسط التقييمات </th>
                                 <th class="wd-3p border-bottom-0"> الصنف</th>
                                 <th class="wd-3p border-bottom-0"> الصورة</th>
                                 <th class="border-bottom-0">الإجراءات</th>
@@ -171,18 +172,19 @@
                             </thead>
                             <tbody>
                             @foreach($products as $product)
-                                <tr>
+                                <tr style="text-align: center">
                                     <td>{{$product->id}}</td>
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->description}}</td>
                                     <td>{{$product->price}}</td>
+                                    <td>{{$product->average_rating}}</td>
                                     <td>{{$product->category->name}}</td>
 
                                     <td><img src="{{ asset('storage/' . $product->image) }}" width="120" height="100" alt="{{ $product->name }}"></td>
 
                                     <td>
                                         <button type="button" class="btn btn-primary" data-toggle="tooltip" title="تعديل المستخدم" data-bs-toggle="modal" data-bs-target="#edit-user-{{$product->id}}"><i class="far fa-edit"></i></button>
-                                        <a href="{{route('dashboard.products.show' , $product->id)}}"><button type="button" class="btn btn-success" data-toggle="tooltip" title="عرض المنتج"  ><i class="fa-solid fa-list"></i></button></a>
+                                        <a href="{{route('dashboard.products.show' , $product->id)}}"><button type="button" class="btn btn-success" data-toggle="tooltip" title="عرض المنتج"  ><i class="far fa-eye"></i></button></a>
 
                                         <!-- Delete -->
                                         <form method="post" class="soft-delete-form" action="{{route('dashboard.products.destroy', $product->id)}}" style="display:inline-block;margin:0">

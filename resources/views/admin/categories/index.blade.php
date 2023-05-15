@@ -96,14 +96,14 @@
                     <div class="table-responsive">
                         <table class="table table-striped mg-b-0 text-md-nowrap dl-table" id="basic-datatable">
                             <thead>
-                            <tr>
+                            <tr style="text-align: center">
                                 <th>#</th>
                                 <th class="border-bottom-0">اسم الصنف</th>
                                 
                                 <th class="border-bottom-0">الإجراءات</th>
                             </tr>
                             </thead>
-                            <tbody style="align-content: center" >
+                            <tbody  style="text-align: center" >
                             @foreach($categories as $category)
                                 <tr>
                                     <td>{{$category->id}}</td>

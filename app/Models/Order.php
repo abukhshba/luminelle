@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $table = 'orders';
     protected $fillable = [
-        'user_id','product_id', 'amount' , 'price' , 'discount' , 'total_price' , 'reservation_date'
+        'user_id','product_id','code', 'amount' , 'price' , 'discount' , 'total_price' ,'deposit','status', 'reservation_date'
     ];
     public function user()
     {
@@ -19,8 +19,4 @@ class Order extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function items()
-    {
-        return $this->hasMany(OrderItem::class);
-    }
 }
