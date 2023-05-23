@@ -8,8 +8,17 @@
         <div class="col-md-8">
             <div class="card">
                 <p style="align-content: center" class="card-header">This is {{ $product->name }}</p>
-                <img src="{{ asset('storage/' . $product->image) }}" width="240" height="200" alt="{{ $product->name }}"></td>
-                <div class="card-body">
+               
+                    <h1>Product Images: {{ $product->name }}</h1>
+                
+                    <div class="row">
+                        @foreach($images as $image)
+                            <div class="col-md-4">
+                                <img src="{{ asset('storage/' . $image->image) }}" alt="Product Image">
+                            </div>
+                        @endforeach
+                    </div>
+                                <div class="card-body">
                     <div class="row">
                         
                         <div class="col-md-8">

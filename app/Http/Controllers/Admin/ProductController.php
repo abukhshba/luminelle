@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductImage;
 
 class ProductController extends Controller
 {
@@ -26,38 +27,47 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create');
+        return view('admin.products.create');
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'image' => 'required|image',
+            'images.*' => 'required|image',
             'description' => 'required',
             'price' => 'required|numeric',
             'category_id' => 'required',
         ]);
 
-        $imagePath = $request->file('image')->store('public/images/products');
-        $imagePath = str_replace('public/', '', $imagePath);
-
         $product = new Product();
         $product->name = $validatedData['name'];
-        $product->image = $imagePath;
         $product->description = $validatedData['description'];
         $product->price = $validatedData['price'];
         $product->category_id = $request->category_id;
         $product->save();
 
-        return redirect()->route('dashboard.products.index');
-    }
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('public/images/products');
+                $imagePath = str_replace('public/', '', $imagePath);
+
+                $productImage = new ProductImage();
+                $productImage->product_id = $product->id;
+                $productImage->image = $imagePath;
+                $productImage->save();
+            }
+        }
+
+    return redirect()->route('dashboard.products.index');
+}
+
 
     public function show($id)
     {
         $product = Product::findOrFail($id);
-
-        return view('admin.products.show', compact('product'));
+        $images = $product->images;
+        return view('admin.products.show', compact('product' , 'images'));
     }
 
     public function edit($id)
@@ -71,20 +81,34 @@ class ProductController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
+            'images.*' => 'nullable|image',
             'description' => 'required',
             'price' => 'required|numeric',
             'category_id' => 'required',
         ]);
-
+    
         $product = Product::findOrFail($id);
         $product->name = $validatedData['name'];
         $product->description = $validatedData['description'];
         $product->price = $validatedData['price'];
         $product->category_id = $request->category_id;
         $product->save();
-
-        return redirect()->route('dashboard.products.show', $id);
+    
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('public/images/products');
+                $imagePath = str_replace('public/', '', $imagePath);
+    
+                $productImage = new ProductImage();
+                $productImage->product_id = $product->id;
+                $productImage->image = $imagePath;
+                $productImage->save();
+            }
+        }
+    
+        return redirect()->route('dashboard.products.index');
     }
+    
 
     public function destroy($id)
     {
