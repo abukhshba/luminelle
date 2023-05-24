@@ -1,8 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.navbar{
+  background-color: rgb(160, 169, 253);
+margin-bottom: 0px;
+
+}
+
 .container.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ffffff;
+
     padding: 5px;
 }
 
@@ -80,21 +96,20 @@
     display: block;
     color: #000;
     text-align: center;
-
     text-decoration: none;
 }
 
 .dropdown-menu li a:hover {
-    color: #0a243e;
+    color: #ffffff;
 }
 
-/* .cover-photo {
+ /* .cover-photo {
     position: relative;
     height: 400px;
-    background-image: url('{{ asset("assets/images/brand/cover.jpg") }}');
+    background-image: url('{{ asset("../../assets/images/brand/cover2.jpg") }}');
     background-size: cover;
     background-position: center;
-  } */
+  }  */
   
   .cover-text {
     position: absolute;
@@ -114,15 +129,154 @@
   .cover-text p {
     font-size: 28px;
   }
+
+
+
+  /* ///////////////////// categories //////////////////////// */
+
+  .projects {
+    background-color: #ffffff;
+    align-items: center;
+
+}
+
+.projects .title {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+}
+.projects .content {
+  margin-top: 30px;
+
+  justify-content: center;
+  display: flex ;
+}
+
+
+.project-card {
+  background-color: rgb(236, 236, 236);
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 20px;
+  min-height: 14em;
+  width: 23em;
+  text-decoration: none;
+  color: #000;
+  overflow: hidden;
+  transition: 0.7s ease;
+}
+
+
+
+.project-card:hover {
+  transform: scale(1.1);
+  color: #352e2e;
+}
+
+.project-card:hover .project-image {
+  opacity: 0.9;
+}
+
+.project-image img {
+  width: 100%;
+}
+
+.project-info {
+  padding: 1em;
+
+}
+
+.project-cardproduct {
+  background-color: rgb(240, 240, 240);
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 20px;
+  min-height: 14em;
+  text-decoration: none;
+  color: #000;
+  overflow: hidden;
+  transition: 0.7s ease;
+}
+
+.project-cardproduct:hover {
+  transform: scale(1.1);
+  color: #352e2e;
+}
+
+.project-cardproduct:hover .project-image {
+  opacity: 0.9;
+}
+
+
+
+
+.project-title {
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 60px;
+    margin-top: 10px;
+}
+
+
+
+.container-profile{
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+
+.projects .contentproduct {
+  margin-top: 30px;
+
+  justify-content: center;
+  display: wrap ;
+}
+
+
+
+
+.price-action {
+  display: flex;
+}
+.price-action h3 {
+  margin-right: 33px; /* Optional spacing between price and button */
+  float:left; /* Optional spacing between price and button */
+}
+
+.price-action a {
+  float:right; /* Optional spacing between price and button */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* .footer-section { */
   
-
- /* footer */
-
-
-  
-  /* .footer-section { */
-    /* Add common styles for all sections */
-  /* } */
   .footer {
     background-color: #41456d;
     padding-top: 30px;
@@ -137,12 +291,23 @@
     color: #ffffff;
     float: left;
   }
+  .footer-section-left a:hover {
+    text-decoration: none;
+    color: #000000;
+
+  }
   .footer-section-middle {
     text-align: center;
-    margin-left: 32%;
+    margin-left: 30%;
     color: #ffffff;
     display: inline-block;
   }
+
+  .footer-section-middle h4{
+    margin-bottom: 40px;
+  }
+  
+
   
   .footer-section-right {
     text-decoration: none;
@@ -156,8 +321,14 @@
 
   }
 
+  .footer-section-right a:hover {
+    text-decoration: none;
+    color: #000000;
+
+  }
+
   .bottom-footer {
-    background-color: #41456d;
+    background-color: #292c44;
     padding: 15px;
     text-align: center;
     margin-left:0%;
@@ -169,4 +340,3 @@
   .bottom-footer p {
     margin: 0;
   }
-  

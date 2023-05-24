@@ -172,7 +172,13 @@
                                     <td>{{$product->average_rating}}</td>
                                     <td>{{$product->category->name}}</td>
 
-                                    <td><img src="{{ asset('storage/' . $product->image) }}" width="120" height="100" alt="{{ $product->name }}"></td>
+                                    <td>
+                                    
+                                        @if ($product->images->count() > 0)
+                                        <img src="{{ asset('storage/' . $product->images->first()->image) }}" height="100px" class="card-img-top" alt="{{ $product->name }}">
+                                        @endif
+
+                                    </td>
 
                                     <td>
                                         <button type="button" class="btn btn-primary" data-toggle="tooltip" title="تعديل المستخدم" data-bs-toggle="modal" data-bs-target="#edit-user-{{$product->id}}"><i class="far fa-edit"></i></button>
