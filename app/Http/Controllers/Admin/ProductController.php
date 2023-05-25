@@ -56,6 +56,8 @@ class ProductController extends Controller
                 $productImage->product_id = $product->id;
                 $productImage->image = $imagePath;
                 $productImage->save();
+
+                $productImages = $product->product_images;
             }
         }
 
@@ -103,6 +105,9 @@ class ProductController extends Controller
                 $productImage->product_id = $product->id;
                 $productImage->image = $imagePath;
                 $productImage->save();
+
+                $productImages = $product->product_images;
+
             }
         }
     

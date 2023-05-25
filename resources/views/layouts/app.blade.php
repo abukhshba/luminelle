@@ -10,17 +10,19 @@
     <title>{{ config('app.name') }}</title>
 
     <link href="{{ asset('assets/back/css/main.css') }}" rel="stylesheet">
+
     <style>
-        .cover-photo {
+        .cover-photo-title {
             position: relative;
-            margin-top: -22px;
-            height: 550px;
+            margin-top: -24px;
+            height: 850px;
             background-image: url('{{ asset("assets/images/brand/cover1.jpg") }}');
             background-size: cover;
             background-position: center;
         }   
-
     </style>
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,16 +36,16 @@
 <body>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar">
 
             <div class="container navbar">
                 <a class="logo-light" href="{{ route('home') }}">
-                    <img src="{{ asset('assets/images/brand/logo.png') }}" height="50px" width="130px" class="main-logo" alt="logo">
+                    <img src="{{ asset('assets/images/brand/logo.png') }}" height="50px" width="140px" class="main-logo" alt="logo">
                 </a>
             
                 <div class="navbar-links">
                     <a class="navbar-brand" href="{{ route('home') }}">Home</a>
-                    <a class="navbar-brand" href="{{ route('home') }}">Categories</a>
+                    <a class="navbar-brand" href="#projects">Categories</a>
                     <a class="navbar-brand" href="{{ route('home') }}">About Us</a>
                     <a class="navbar-brand" href="{{ route('home') }}">Contact Us</a>
                 </div>
@@ -70,73 +72,6 @@
                 </div>
                 
             </div>
-            
-            {{-- <div class="container">
-                <a class=" logo-light " href="{{route('dashboard.home')}}"><img src="{{asset('assets/images/brand/logo.png')}}" height="40px" width="100px" class="main-logo" alt="logo"></a>
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    Home
-                </a> 
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    Categories
-                </a>  
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    About Us
-                </a> 
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    Contact Us
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ $user->name }}
-                                </a>
-
-               
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('user.show', ['id' => $user->id]) }}">
-                                        View Profile
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div> --}}
         </nav>
 
         <main class="py-4">
@@ -172,7 +107,7 @@
         </div>
         <div class="bottom-footer">
           <div class="container">
-            <p>&copy; {{ date('Y') }} Your Store. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Luminelle Store. All rights reserved.</p>
           </div>
         </div>
       </footer>
