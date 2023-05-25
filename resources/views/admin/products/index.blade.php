@@ -156,7 +156,6 @@
                                 <th class="border-bottom-0">اسم المنتج</th>
                                 <th class="wd-3p border-bottom-0"> الوصف</th>
                                 <th class="wd-3p border-bottom-0">السعر  </th>
-                                <th class="wd-3p border-bottom-0">متوسط التقييمات </th>
                                 <th class="wd-3p border-bottom-0"> الصنف</th>
                                 <th class="wd-3p border-bottom-0"> الصورة</th>
                                 <th class="border-bottom-0">الإجراءات</th>
@@ -169,7 +168,6 @@
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->description}}</td>
                                     <td>{{$product->price}}</td>
-                                    <td>{{$product->average_rating}}</td>
                                     <td>{{$product->category->name}}</td>
 
                                     <td>

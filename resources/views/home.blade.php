@@ -24,18 +24,36 @@
 
           <h1 class="title">Dresses Categories</h1>
               <div class="content">
+                
+                @foreach ($categories as $category)
       
-                <a href="{{ route('categories.products', ['id' => 2]) }}" class="project-card">
-                  <div class="project-image">
-                          <img src="{{ asset("assets/images/brand/wedding4.jpg") }}" />
-                      </div>
-                      <div class="project-info">
-                          <strong class="project-title">
-                              <span>Wedding</span>
-                          </strong>
-                      </div>
+                <a href="{{ route('categories.products', [$category->id]) }}" class="project-card">
+                    @if($category->id == 1)
+                    <div class="project-image">
+                        <img src="{{ asset("assets/images/brand/soiree2.jpeg") }}"/>
+                    </div>
+                    <div class="project-info">
+                        <strong class="project-title">
+                            <span>Soiree</span>
+                        </strong>
+                    </div>
+
+                    @elseif($category->id == 2)
+                        <div class="project-image">
+                            <img src="{{ asset("assets/images/brand/wedding4.jpg") }}" />
+                        </div>
+                           
+                        <div class="project-info">
+                            <strong class="project-title">
+                                <span>Wedding</span>
+                            </strong>
+                        </div>
+
+                    @endif
                   </a>
-                  <a href="{{ route('categories.products', ['id' => 1]) }}" class="project-card">
+                  @endforeach
+
+                  {{-- <a href="{{ route('categories.products', ['id' => 1]) }}" class="project-card">
                       <div class="project-image">
                           <img src="{{ asset("assets/images/brand/soiree2.jpeg") }}"/>
                       </div>
@@ -45,7 +63,7 @@
                           </strong>
                       </div>
                     </a>
-  
+   --}}
           </div> 
       </section>
 

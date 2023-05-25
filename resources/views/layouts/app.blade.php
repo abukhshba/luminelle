@@ -45,7 +45,8 @@
             
                 <div class="navbar-links">
                     <a class="navbar-brand" href="{{ route('home') }}">Home</a>
-                    <a class="navbar-brand" href="#projects">Categories</a>
+                    <a class="navbar-brand" href="{{route('categories.products', [2]) }}">Wedding</a>
+                    <a class="navbar-brand" href="{{route('categories.products', [1]) }}">Soiree</a>
                     <a class="navbar-brand" href="{{ route('home') }}">About Us</a>
                     <a class="navbar-brand" href="{{ route('home') }}">Contact Us</a>
                 </div>
@@ -88,12 +89,13 @@
               <li><a href="">Categories</a></li>
               <li><a href="">About Us</a></li>
               <li><a href="">Contact Us</a></li>
+              <li><a href="">Terms And Conditions</a></li>
             </ul>
           </div>
           <div class="footer-section-middle">
             <h4>Contact</h4>
-            <p>Email: info@example.com</p>
-            <p>Phone: +1234567890</p>
+            <p>Email: abukhshba@gmail.com</p>
+            <p>Phone: +201013367402</p>
           </div>
           <div class="footer-section-right">
             <h4>Social Media</h4>
