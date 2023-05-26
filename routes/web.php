@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -42,6 +43,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/categories/{id}/products', [CategoryController::class, 'showProducts'])->name('categories.products');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
+    Route::get('/orders/book/{id}', [OrderController::class, 'bookNow'])->name('orders.bookNow');
+    Route::get('/orders/contact', [OrderController::class, 'contact'])->name('orders.contact');
+    Route::post('/orders/create', [OrderController::class, 'create'])->name('orders.create');
 
 
 

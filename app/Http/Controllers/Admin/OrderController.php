@@ -12,7 +12,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::orderBy('status')->get();
+        $orders = Order::orderBy('reservation_date')->get();
         $users = User::all();
         $ordersCount = Order::count();
         $order = Order::first();

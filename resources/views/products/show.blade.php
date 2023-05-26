@@ -37,157 +37,144 @@
             {{-- rating --}}
              <div class="product-rating">
 
-            @if($averageRating<1.25)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-            <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-            <img src="{{ asset('assets/images/brand/star025.png') }}" height="15px" width="4px" class="main-logo" alt="logo">
+                @if($averageRating<1.25)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star025.png') }}" height="15px" width="4px" class="main-logo" alt="logo">
+                </div>
 
-            </div>
-            @elseif($averageRating>1.25 && $averageRating<=1.5)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-            <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-            <img src="{{ asset('assets/images/brand/star05.png') }}" height="15px" width="8px" class="main-logo" alt="logo">
-
-            </div>
-
-
-            @elseif($averageRating>1.5 && $averageRating<=1.75)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-            <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-            <img src="{{ asset('assets/images/brand/star075.png') }}" height="15px" width="12px" class="main-logo" alt="logo">
-
-            </div> 
-            
-            @elseif($averageRating>1.75 && $averageRating<=2)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-            <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-            <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-
-            </div> 
-            
-            @elseif($averageRating>2 && $averageRating<=2.25)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-            <img src="{{ asset('assets/images/brand/star025.png') }}" height="15px" width="4px" class="main-logo" alt="logo">
-
-            </div> 
-            
-            @elseif($averageRating>2.25 && $averageRating<=2.5)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-            <img src="{{ asset('assets/images/brand/star05.png') }}" height="15px" width="8px" class="main-logo" alt="logo">
-
-            </div> 
-            
-            @elseif($averageRating>2.5 && $averageRating<=2.75)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star075.png') }}" height="15px" width="12px" class="main-logo" alt="logo">
-
-            </div>
-            
-            @elseif($averageRating>2.75 && $averageRating<=3)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-
-            </div>
-            
-            @elseif($averageRating>3 && $averageRating<=3.25)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star025.png') }}" height="15px" width="4px" class="main-logo" alt="logo">
-
-            </div>
-            
-            @elseif($averageRating>3.25 && $averageRating<=3.5)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star05.png') }}" height="15px" width="8px" class="main-logo" alt="logo">
-
-            </div>
-            
-            @elseif($averageRating>3.5 && $averageRating<=3.75)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star075.png') }}" height="15px" width="12px" class="main-logo" alt="logo">
-
-            </div>
-            @elseif($averageRating>3.75 && $averageRating<=4)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-
-            </div>
-            @elseif($averageRating>4 && $averageRating<=4.25)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star025.png') }}" height="15px" width="4px" class="main-logo" alt="logo">
-
-            </div>
+                @elseif($averageRating>1.25 && $averageRating<=1.5)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star05.png') }}" height="15px" width="8px" class="main-logo" alt="logo">
+                </div>
 
 
-            @elseif($averageRating>4.25 && $averageRating<=4.5)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star05.png') }}" height="15px" width="8px" class="main-logo" alt="logo">
+                @elseif($averageRating>1.5 && $averageRating<=1.75)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star075.png') }}" height="15px" width="12px" class="main-logo" alt="logo">
+                </div> 
+                
+                @elseif($averageRating>1.75 && $averageRating<=2)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                </div> 
+                
+                @elseif($averageRating>2 && $averageRating<=2.25)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star025.png') }}" height="15px" width="4px" class="main-logo" alt="logo">
+                </div> 
+                
+                @elseif($averageRating>2.25 && $averageRating<=2.5)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star05.png') }}" height="15px" width="8px" class="main-logo" alt="logo">
+                </div> 
+                
+                @elseif($averageRating>2.5 && $averageRating<=2.75)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star075.png') }}" height="15px" width="12px" class="main-logo" alt="logo">
+                </div>
+                
+                @elseif($averageRating>2.75 && $averageRating<=3)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                </div>
+                
+                @elseif($averageRating>3 && $averageRating<=3.25)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star025.png') }}" height="15px" width="4px" class="main-logo" alt="logo">
+                </div>
+                
+                @elseif($averageRating>3.25 && $averageRating<=3.5)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star05.png') }}" height="15px" width="8px" class="main-logo" alt="logo">
+                </div>
+                
+                @elseif($averageRating>3.5 && $averageRating<=3.75)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star075.png') }}" height="15px" width="12px" class="main-logo" alt="logo">
+                </div>
 
-            </div>
+                @elseif($averageRating>3.75 && $averageRating<=4)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                </div>
+
+                @elseif($averageRating>4 && $averageRating<=4.25)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star025.png') }}" height="15px" width="4px" class="main-logo" alt="logo">
+                </div>
 
 
-            @elseif($averageRating>4.5 && $averageRating<=4.75)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star075.png') }}" height="15px" width="12px" class="main-logo" alt="logo">
+                @elseif($averageRating>4.25 && $averageRating<=4.5)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star05.png') }}" height="15px" width="8px" class="main-logo" alt="logo">
+                </div>
 
-            </div>
 
-            @elseif($averageRating>4.75 && $averageRating<=5)
-            <div class="product-rating">
-              Rating: {{$averageRating}}
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-              <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                @elseif($averageRating>4.5 && $averageRating<=4.75)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star075.png') }}" height="15px" width="12px" class="main-logo" alt="logo">
+                </div>
 
-            </div>
+                @elseif($averageRating>4.75 && $averageRating<=5)
+                <div class="product-rating">
+                  Rating: {{$averageRating}}
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                  <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
+                </div>
             
             
             {{-- end rating --}}
@@ -204,7 +191,21 @@
                 <span class="real">{{ $product->price }} EGP</span>
              </div>
               @endif
-              <a href="#" class="btn btn-danger">Book Now</a>
+              <a href="{{route('orders.bookNow' , [$product->id])}}" class="btn btn-danger">Book Now</a>
+
+              <form action="{{ route('orders.create') }}" method="POST">
+                @csrf
+
+                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                @if ($product->is_discounted)
+                    <input type="hidden" name="price" value="{{ $product->price - $product->discount }}">
+                @else
+                  <input type="hidden" name="price" value="{{ $product->price }}">
+                @endif
+                <input type="hidden" name="status" value="تم الطلب وبإنتظار دفع العربون">
+               
+
+              </form>
             </div>
           </div>
 

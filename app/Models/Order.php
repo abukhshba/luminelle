@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $table = 'orders';
     protected $fillable = [
-        'user_id','product_id','code', 'amount' , 'price' , 'discount' , 'total_price' ,'deposit','status', 'reservation_date'
+        'user_id','product_id','code' , 'price' ,'deposit','status', 'reservation_date'
     ];
     public function user()
     {

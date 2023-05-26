@@ -363,7 +363,11 @@
 
 .top-titles-route a{
   text-decoration: none;
-  color: #000;
+  color: #6b6464;
+}
+.top-titles-route span{
+  text-decoration: none;
+  color: #6b6464;
 }
 
 
@@ -408,12 +412,64 @@
 }
 
 
+.centered-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.centered-text p {
+  font-size: 20px;
+}
+
+.formbookingconfirmation{
+  margin-top: 10px;
+  
+}
+.form-group{
+  padding:  15px 0px 10px 0px;
+}
 
 
+.confirmButton {
+  padding:  15px 0px 30px 0px;
 
+}
 
+.vodafone-cash{
+  background-color: rgb(187, 3, 3);
+  color: #fff;
+  padding: 10px;
+}
 
+.whatsapp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
 
+.thanks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.form-check-label-check{
+  color: #0e7600;
+}
+table{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.backtoproduct{
+  float: right;
+}
 
 
 
