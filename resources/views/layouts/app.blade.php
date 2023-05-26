@@ -22,6 +22,7 @@
         }   
     </style>
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script:wght@400;700&display=swap">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Fonts -->
@@ -48,7 +49,7 @@
                     <a class="navbar-brand" href="{{route('categories.products', [2]) }}">Wedding</a>
                     <a class="navbar-brand" href="{{route('categories.products', [1]) }}">Soiree</a>
                     <a class="navbar-brand" href="{{ route('home') }}">About Us</a>
-                    <a class="navbar-brand" href="{{ route('home') }}">Contact Us</a>
+                    <a class="navbar-brand" href="#contact">Contact Us</a>
                 </div>
                 <div class="user-profile">
                     <div class="profile-circle">
@@ -86,13 +87,13 @@
             <h4>Navigations</h4>
             <ul>
               <li><a href="{{ route('home') }}">Home</a></li>
-              <li><a href="">Categories</a></li>
-              <li><a href="">About Us</a></li>
-              <li><a href="">Contact Us</a></li>
-              <li><a href="">Terms And Conditions</a></li>
+              <li><a  href="{{route('categories.products', [2]) }}">Wedding</a></li>
+              <li><a href="{{route('categories.products', [1]) }}">Soiree</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+              <li><a href="{{route('termsAndConditions')}}">Terms And Conditions</a></li>
             </ul>
           </div>
-          <div class="footer-section-middle">
+          <div id="contact" class="footer-section-middle">
             <h4>Contact</h4>
             <p>Email: abukhshba@gmail.com</p>
             <p>Phone: +201013367402</p>
@@ -102,7 +103,7 @@
             <ul class="social-icons">
               <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
               <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-              <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
               <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
             </ul>
           </div>

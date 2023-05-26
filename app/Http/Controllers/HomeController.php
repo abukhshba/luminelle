@@ -32,4 +32,16 @@ class HomeController extends Controller
             'categories' => $categories
         ]);
     }
+
+    public function contactUs(){
+        $user = Auth::user(); 
+
+        return view ('contactUs.index' ,compact('user'));
+    }
+
+    public function termsAndConditions(){
+        $user = Auth::user(); 
+
+        return view ('terms.index' ,compact('user'));
+    }
 }

@@ -173,7 +173,7 @@
                                     <td>
                                     
                                         @if ($product->images->count() > 0)
-                                        <img src="{{ asset('storage/' . $product->images->first()->image) }}" height="100px" class="card-img-top" alt="{{ $product->name }}">
+                                        <img src="{{ asset('storage/' . $product->images->last()->image) }}" height="100px" class="card-img-top" alt="{{ $product->name }}">
                                         @endif
 
                                     </td>
