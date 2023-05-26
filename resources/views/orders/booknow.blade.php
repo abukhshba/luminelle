@@ -12,21 +12,21 @@
         <span>{{ $product->name }}</span></a>
 
         <a class="backtoproduct" href="{{ route('products.show', [$product->id]) }}">
-          <button type="button" class="btn btn-danger">Back to the product</button>
+          <button type="button" class="btn">Back to the product</button>
         </a>
       </h5>
  
         
         <table class="table table-bordered">
           <thead>
-            <tr class="table-primary">
+            <tr class="table-fields">
               <th scope="col">Product Name</th>
               <th scope="col">Price</th>
               <th scope="col">Deposit</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-info">
+            <tr class="table-secondary">
               <td>{{ $product->name }}</td>
               <td>
                 
@@ -69,7 +69,7 @@
               <input type="hidden" name="status" value="تم الطلب وبإنتظار دفع العربون">
 
               <div class="form-group">
-                <label class="text-danger" for="exampleCheck1"><span style="font-size: 20px">Enter The reservation date</label>
+                <label class="text-dark" for="exampleCheck1"><span style="font-size: 20px">Enter The reservation date</label>
 
                 <input type="date" name="reservation_date" class="form-control" placeholder="Reservation Date">
               </div>

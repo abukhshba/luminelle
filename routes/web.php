@@ -48,5 +48,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/orders/create', [OrderController::class, 'create'])->name('orders.create');
 
 
+    Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
+    Route::get('/termsAndConditions', [HomeController::class, 'termsAndConditions'])->name('termsAndConditions');
+
+
 
 });

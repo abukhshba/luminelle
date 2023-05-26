@@ -33,7 +33,7 @@
                                           <span class="real">{{ $product->price }} EGP</span>
                                        </div>
                                         @endif
-                                        <a href="#" class="btn btn-danger">Book Now</a>
+                                        <a href="{{ route('products.show', [$product->id]) }}" class="btn btn-success">Book Now</a>
                                       </div>
                                 </div>
                             </a>

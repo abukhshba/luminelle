@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script:wght@400;700&display=swap");
 
 * {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -152,6 +151,7 @@
   text-align: center;
   font-size: 60px;
   font-weight: bold;
+  font-family: 'Dancing Script', cursive;
 }
 .projects .content {
   margin-top: 30px;
@@ -217,8 +217,9 @@
 
 .project-title {
     display: flex;
-    justify-content: center;
-    font-weight: 800;
+    justify-content: center; 
+    font-family: 'Dancing Script', cursive;
+    font-weight: 400;
     font-size: 60px;
     margin-top: 10px;
 }
@@ -311,21 +312,79 @@
   overflow: hidden;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Style individual thumbnails */
-.thumbnail {
-  width: 200px;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  height: 200px;
-  overflow: hidden;
-  float: right;
+
+.product-details-show {
+  display: flex;
 }
 
-.thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  cursor: pointer;
+.product-images {
+  margin-right: 20px;
 }
+
+.thumbnail-grid {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.thumbnail {
+
+  margin-bottom: 0px;
+}
+
+
+.product-info {
+  flex: 1;
+}
+
+
+
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.product-rating img {
+  margin-right: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Style the product details section */
 .product-details {
@@ -359,11 +418,16 @@
   text-decoration: none;
   color: #000;
 }
+.top-titles-route{
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
 
+}
 
 .top-titles-route a{
   text-decoration: none;
   color: #6b6464;
+
 }
 .top-titles-route span{
   text-decoration: none;
@@ -416,7 +480,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 50px;
+  padding:  26px 0px 10px 0px;
+  border-radius: 3%;
+  background-color: #e2dc8f;
 }
 
 .centered-text p {
@@ -438,7 +505,7 @@
 }
 
 .vodafone-cash{
-  background-color: rgb(187, 3, 3);
+  background-color: rgb(226, 31, 31);
   color: #fff;
   padding: 10px;
 }
@@ -451,6 +518,20 @@
   margin-bottom: 60px;
 }
 
+.whatcolor{
+  background-color: #377130;
+  
+}
+.whatcolor button{
+  color: white  ;
+  padding: 6.5px 25px 6.5px 25px;
+}
+
+.whatcolor button:hover{
+  color: white  ;
+}
+
+
 .thanks{
   display: flex;
   justify-content: center;
@@ -459,7 +540,7 @@
 }
 
 .form-check-label-check{
-  color: #0e7600;
+  color: #756c31;
 }
 table{
   text-align: center;
@@ -469,9 +550,25 @@ table{
 
 .backtoproduct{
   float: right;
+  background-color: #494c69;
+  border-radius: 2%;
+  font-size: 12px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.backtoproduct button{
+  color: #fff;
+  font-size: 14px;
+
+}
+.backtoproduct button:hover{
+color: #fff;
+
 }
 
-
+.table-fields{
+  background-color: #7d8086;
+  color: #fff;
+}
 
 
 
@@ -486,6 +583,7 @@ table{
   .footer {
     background-color: #41456d;
     padding-top: 30px;
+    text-align: center;
 
   }
   .footer-section-left {
@@ -505,7 +603,7 @@ table{
   .footer-section-middle {
     text-align: center;
     align-items: center;
-    margin-left: 20%;
+    justify-content: space-between;
     color: #ffffff;
     display: inline-block;
   }
@@ -538,7 +636,8 @@ table{
     background-color: #292c44;
     padding: 15px;
     text-align: center;
-    margin-left:0%;
+    
+    padding-left:8%;
     margin-top: 3.5%;
     font-size: 14px;
     color: #ffffff;
