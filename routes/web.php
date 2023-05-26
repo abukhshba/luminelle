@@ -4,6 +4,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Auth;
@@ -23,19 +25,28 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('registerform');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');;
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/categories/{id}/products', [CategoryController::class, 'showProducts'])->name('categories.products');
+    Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
+
+
+    Route::get('/categories/{id}/products', [CategoryController::class, 'showProducts'])->name('categories.products');
+    Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+    Route::get('/orders/book/{id}', [OrderController::class, 'bookNow'])->name('orders.bookNow');
+    Route::get('/orders/contact', [OrderController::class, 'contact'])->name('orders.contact');
+    Route::post('/orders/create', [OrderController::class, 'create'])->name('orders.create');
 
 
 
-
-// });
+});

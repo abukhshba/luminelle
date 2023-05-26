@@ -1,12 +1,14 @@
 <?php 
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\Review;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -25,53 +27,21 @@ class ProductController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        return view('admin.products.create');
-    }
 
-    public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'images.*' => 'required|image',
-            'description' => 'required',
-            'price' => 'required|numeric',
-            'category_id' => 'required',
-        ]);
-
-        
-        $product = new Product();
-        $product->name = $validatedData['name'];
-        $product->description = $validatedData['description'];
-        $product->price = $validatedData['price'];
-        $product->category_id = $request->category_id;
-        $product->save();
-
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imagePath = $image->store('public/images/products');
-                $imagePath = str_replace('public/', '', $imagePath);
-
-                $productImage = new ProductImage();
-                $productImage->product_id = $product->id;
-                $productImage->image = $imagePath;
-                $productImage->save();
-
-                $productImages = $product->product_images;
-            }
-        }
-
-    return redirect()->route('dashboard.products.index');
-}
 
 
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        $images = $product->images;
-        return view('admin.products.show', compact('product' , 'images'));
+        $user = Auth::user(); 
+         $categoryID = $product->category->id;
+         $categoryName = $product->category->name;
+         $averageRating = Review::where('product_id', $id)->avg('rating');
+         $averageRating = number_format($averageRating, 2);
+
+        return view('products.show', compact('product','categoryID','averageRating','categoryName', 'user'));
     }
+    
 
     public function edit($id)
     {
@@ -107,7 +77,6 @@ class ProductController extends Controller
                 $productImage->image = $imagePath;
                 $productImage->save();
 
-                $productImages = $product->product_images;
 
             }
         }

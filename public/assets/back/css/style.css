@@ -56437,7 +56437,7 @@ li.folder-group {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    -webkit-appearance: button;
+    /* webkit-appearance: button; */
     display: inline-block;
     font-weight: 400;
     text-align: center;

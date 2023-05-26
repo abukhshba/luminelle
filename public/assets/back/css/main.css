@@ -9,8 +9,13 @@
 }
 
 .navbar{
-  background-color: rgb(160, 169, 253);
-margin-bottom: 0px;
+  background-color: rgb(226, 226, 226);
+  margin-bottom: 0px;
+  z-index: 999;
+  position: fixed;
+  z-index: 999;
+  display: flex;
+
 
 }
 
@@ -34,9 +39,10 @@ margin-bottom: 0px;
 }
 
 .navbar-links a.navbar-brand {
-    color: #333;
+    color: #130303;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 8px;
+    font-size:16px ;
 }
 
 .user-profile {
@@ -63,7 +69,8 @@ margin-bottom: 0px;
 }
 
 .profile-name {
-    font-weight: bold;
+    font-weight:500;
+    font-size: 14px;
 }
 
 .dropdown-menu {
@@ -208,9 +215,6 @@ margin-bottom: 0px;
   opacity: 0.9;
 }
 
-
-
-
 .project-title {
     display: flex;
     justify-content: center;
@@ -218,8 +222,6 @@ margin-bottom: 0px;
     font-size: 60px;
     margin-top: 10px;
 }
-
-
 
 .container-profile{
   margin-top: 60px;
@@ -239,25 +241,235 @@ margin-bottom: 0px;
 
 .price-action {
   display: flex;
+  margin-top: 20px; 
+
 }
 .price-action h3 {
-  margin-right: 33px; /* Optional spacing between price and button */
-  float:left; /* Optional spacing between price and button */
+  margin-right: 80px; 
+  margin-top: 20px; 
+  float:left; 
+  font-size: 18px;
+
 }
 
 .price-action a {
-  float:right; /* Optional spacing between price and button */
+  float:right;
+  margin-right: 1px;
+  height: 36px;
+
+}
+.price-details{
+  margin-top: 10px;
+  margin-right: 90px;
+  display: inline;
+}
+.real{
+  font-size:17px;
+
+}
+.off-card{
+  font-size:13px;
+  font-weight:400;
+  color:#000000;
+  display: block;
+  padding: 2px;
+  text-decoration:line-through;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 100px;
+}
+
+.off{
+  font-size:13px;
+  font-weight:400;
+  color:#000000;
+  padding: 2px;
+  text-decoration:line-through;
+  margin-top: 10px;
 }
 
 
 
+.product-datails-show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Style the product images container */
+.product-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 
+.carousel-container {
+  display: flex;
+  overflow: hidden;
+}
+
+/* Style individual thumbnails */
+.thumbnail {
+  width: 200px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  height: 200px;
+  overflow: hidden;
+  float: right;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Style the product details section */
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-details h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.product-details p {
+  margin: 0;
+}
+
+.product-rating {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
 
 
+.product-show-card{
+  text-decoration: none;
+  color: #000;
+}
+
+.product-show-card :hover{
+  text-decoration: none;
+  color: #000;
+}
 
 
+.top-titles-route a{
+  text-decoration: none;
+  color: #6b6464;
+}
+.top-titles-route span{
+  text-decoration: none;
+  color: #6b6464;
+}
 
+
+.stars {
+  display: inline-block;
+  font-size: 0;
+}
+
+.stars span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url(star.png); /* Replace with your star image */
+  background-size: cover;
+}
+
+.full-star {
+  background-position: 0 0;
+}
+
+.half-star {
+  background-position: -16px 0;
+}
+
+.empty-star {
+  background-position: -32px 0;
+}
+
+.rating-details {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.rating-value {
+  font-size: 16px;
+}
+
+.rating-description {
+  font-size: 14px;
+  color: #999;
+}
+
+
+.centered-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.centered-text p {
+  font-size: 20px;
+}
+
+.formbookingconfirmation{
+  margin-top: 10px;
+  
+}
+.form-group{
+  padding:  15px 0px 10px 0px;
+}
+
+
+.confirmButton {
+  padding:  15px 0px 30px 0px;
+
+}
+
+.vodafone-cash{
+  background-color: rgb(187, 3, 3);
+  color: #fff;
+  padding: 10px;
+}
+
+.whatsapp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.thanks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.form-check-label-check{
+  color: #0e7600;
+}
+table{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.backtoproduct{
+  float: right;
+}
 
 
 
@@ -292,7 +504,8 @@ margin-bottom: 0px;
   }
   .footer-section-middle {
     text-align: center;
-    margin-left: 30%;
+    align-items: center;
+    margin-left: 20%;
     color: #ffffff;
     display: inline-block;
   }
@@ -327,7 +540,7 @@ margin-bottom: 0px;
     text-align: center;
     margin-left:0%;
     margin-top: 3.5%;
-
+    font-size: 14px;
     color: #ffffff;
   }
   
