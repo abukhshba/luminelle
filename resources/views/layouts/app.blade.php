@@ -48,7 +48,7 @@
                     <a class="navbar-brand" href="{{ route('home') }}">Home</a>
                     <a class="navbar-brand" href="{{route('categories.products', [2]) }}">Wedding</a>
                     <a class="navbar-brand" href="{{route('categories.products', [1]) }}">Soiree</a>
-                    <a class="navbar-brand" href="{{ route('home') }}">About Us</a>
+                    {{--<a class="navbar-brand" href="{{ route('about') }}">About Us</a>--}}
                     <a class="navbar-brand" href="#contact">Contact Us</a>
                 </div>
                 <div class="user-profile">

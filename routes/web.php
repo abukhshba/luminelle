@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/categories/{id}/products', [CategoryController::class, 'showProducts'])->name('categories.products');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+    Route::post('/products/{product}/reviews', [ProductController::class, 'storeReview'])->name('reviews.store');
 
     Route::get('/orders/book/{id}', [OrderController::class, 'bookNow'])->name('orders.bookNow');
     Route::get('/orders/contact', [OrderController::class, 'contact'])->name('orders.contact');

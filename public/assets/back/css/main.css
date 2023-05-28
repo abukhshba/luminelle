@@ -12,7 +12,6 @@
   margin-bottom: 0px;
   z-index: 999;
   position: fixed;
-  z-index: 999;
   display: flex;
 
 
@@ -151,7 +150,7 @@
   text-align: center;
   font-size: 60px;
   font-weight: bold;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .projects .content {
   margin-top: 30px;
@@ -218,7 +217,7 @@
 .project-title {
     display: flex;
     justify-content: center; 
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 400;
     font-size: 60px;
     margin-top: 10px;
@@ -419,7 +418,7 @@
   color: #000;
 }
 .top-titles-route{
-  font-family: 'Dancing Script', cursive;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;
 
 }
@@ -569,6 +568,84 @@ color: #fff;
   background-color: #7d8086;
   color: #fff;
 }
+
+.product-datails-show{
+  align-items: center;
+background-color:#efefef;
+  border: #377130;
+  border-radius: 3%;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 40px;
+
+}  
+
+.hashline{
+  text-align: center;
+}
+
+
+.comments-reviews{
+  padding-left: 28%;
+  background-color: #f0f0f0;
+  padding-bottom: 30px;
+  
+  }
+
+  .comments-reviews h1{
+    margin-left: 0px;  
+    font-weight: bolder;  
+    padding: 20px;
+    }
+      
+
+    .profile-circle-review{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+   
+    .comment p{
+      margin-top: 10px;
+    }
+  
+    .add-comment h4{
+      background-color: #b0b0b0;
+      margin-top: 20px;
+      border-radius: 3%;
+      width: 350px;
+      padding: 10px 0 10px 10px;
+    }
+
+.form-control-review{
+  width: 40%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
