@@ -40,10 +40,7 @@
                                 <th class="border-bottom-0">Code</th>
                                 <th class="border-bottom-0">User</th>
                                 <th class="border-bottom-0">Product</th>
-                                <th class="border-bottom-0">amount</th>
                                 <th class="border-bottom-0">Price</th>
-                                <th class="border-bottom-0">Discount</th>
-                                <th class="border-bottom-0">Total Price</th>
                                 <th class="border-bottom-0">Deposit</th>
                                 <th class="border-bottom-0">Status </th>
                                 <th class="border-bottom-0">Date Reservation</th>
@@ -55,10 +52,7 @@
                                 <td>{{ $order->code }}</td>
                                 <td><span style="color: #00ae0f">{{ $order->user->name }} </span><br><span style="color: #ff4000"> {{ $order->user->phone }} </span> </td>
                                 <td><span style="color: #00ae0f">{{ $order->product->name ?? 'N/A' }} </span><br> <span style="color: #ff4000"> {{ $order->product->category->name ?? 'N/A'}} </span></td>
-                                <td>{{ $order->amount }}</td>
                                 <td>{{ $order->price }}</td>
-                                <td>{{ $order->discount }}</td>
-                                <td><strong>{{ $order->total_price }}</strong></td>
                                 <td>{{ $order->deposit }}</td>
                                 <td>
                                 <div
@@ -83,7 +77,7 @@
                     <div style="padding: 5px; margin-left: 500px ;margin-top: 20px ; font-size: 25px">
                            
                         <span ><strong>Total :</strong></span>
-                        <span><strong> {{ $order->total_price }} </strong><span> EGP</span></span> 
+                        <span><strong> {{ $order->price }} </strong><span> EGP</span></span> 
                 </div>
                 </div>
 

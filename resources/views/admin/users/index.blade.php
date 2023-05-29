@@ -38,6 +38,13 @@
                             <label for="add-password-confirmation">تأكيد كلمة المرور</label>
                             <input type="password" id="add-password-confirmation" class="form-control" name="password_confirmation" required />
                         </div>
+                        <div class="form-group">
+                            <label for="image">الصورة الشخصية</label>
+                            <div class="sec-2">
+                                <i class="lni lni-user"></i>
+                                <input type="file" id="image" name="image"/>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -87,6 +94,14 @@
                             <div class="form-group">
                                 <label for="edit-password-confirmation-{{$user->id}}">تأكيد كلمة المرور</label>
                                 <input type="password" id="edit-password-confirmation-{{$user->id}}" class="form-control" name="password_confirmation" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image">الصورة الشخصية</label>
+                                <div class="sec-2">
+                                    <i class="lni lni-user"></i>
+                                    <input type="file" id="image" name="image"/>
+                                </div>
                             </div>
 
                         </div>
@@ -141,6 +156,7 @@
                                 <th class="wd-3p border-bottom-0">رقم الهاتف</th>
                                 <th class="wd-3p border-bottom-0">البريد الالكتروني</th>
                                 <th class="wd-3p border-bottom-0"> العنوان</th>
+                                <th class="wd-3p border-bottom-0"> الصورة الشخصية</th>
                                 <th class="border-bottom-0">الإجراءات</th>
                             </tr>
                             </thead>
@@ -152,6 +168,9 @@
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->address}}</td>
+                                    <td><div>
+                                        <img src="{{ asset('images/users/' . $user->image) }}" alt="{{ $user->name }}" class="img-thumbnail" style="width: 100px; height: 100px;">
+                                    </div></td>
 
                                     <td>
                                         <button type="button" class="btn btn-primary" data-toggle="tooltip" title="تعديل المستخدم" data-bs-toggle="modal" data-bs-target="#edit-user-{{$user->id}}"><i class="far fa-edit"></i></button>

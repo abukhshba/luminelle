@@ -27,6 +27,10 @@
                             <label for="add-price"> السعر</label>
                             <input type="number" class="form-control" id="add-price" value="{{old('price')}}" name="price" required />
                         </div>
+                        <div class="form-group">
+                            <label for="add-deposit"> العربون</label>
+                            <input type="number" class="form-control" id="add-deposit" value="{{old('deposit')}}" name="deposit" required />
+                        </div>
 
                         <div class="form-group">
                             <label for="category">Category</label>
@@ -88,7 +92,11 @@
                             <div class="form-group">
                                 <label for="edit-price-{{$product->id}}">السعر </label>
                                 <input type="number" id="edit-price-{{$product->id}}" class="form-control" value="{{old('price') ?? $product->price}}" name="price" required />
-                            </div>product
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-deposit-{{$product->id}}">العربون  </label>
+                                <input type="number" id="edit-deposit-{{$product->id}}" class="form-control" value="{{old('deposit') ?? $product->deposit}}" name="deposit" required />
+                            </div>
 
                             <div class="form-group">
                                 <label for="category">Category</label>

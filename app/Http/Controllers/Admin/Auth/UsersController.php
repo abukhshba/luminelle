@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -64,16 +65,26 @@ class UsersController extends Controller
 
         $validatedData['password'] = bcrypt($validatedData['password']);
 
+        $user = new User([
+            'name' => $request->name,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $image_name = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $image_name);
-            $validatedData['image'] = $image_name;
+            $fileName = $user->id . '_' . time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('images/users/' . $fileName); // Add missing slash before the file name
+            $image->move(public_path('images/users'), $fileName);
+            $user->image = $fileName;
         }
 
-        User::create($validatedData);
+        $user->save();
 
-        return redirect()->route('users.index')->with('success', 'User created successfully.');
+
+        return redirect()->route('dashboard.users.index')->with('success', 'User created successfully.');
     }
 
     /**
@@ -112,14 +123,15 @@ class UsersController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $image_name = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $image_name);
+            $image_name =  $user->id . '_' . time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('images/users/' . $image_name); // Add missing slash before the file name
+            $image->move(public_path('images/users'), $image_name);
             $validatedData['image'] = $image_name;
         }
 
         $user->update($validatedData);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        return redirect()->route('dashboard.users.index')->with('success', 'User updated successfully.');
     }
 
     /**

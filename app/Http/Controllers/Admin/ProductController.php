@@ -37,6 +37,7 @@ class ProductController extends Controller
             'images.*' => 'required|image',
             'description' => 'required',
             'price' => 'required|numeric',
+            'deposit' => 'required|numeric',
             'category_id' => 'required',
         ]);
 
@@ -45,6 +46,7 @@ class ProductController extends Controller
         $product->name = $validatedData['name'];
         $product->description = $validatedData['description'];
         $product->price = $validatedData['price'];
+        $product->deposit = $validatedData['deposit'];
         $product->category_id = $request->category_id;
         $product->save();
 
@@ -86,6 +88,7 @@ class ProductController extends Controller
             'name' => 'required',
             'images.*' => 'nullable|image',
             'description' => 'required',
+            'deposit' => 'required|numeric',
             'price' => 'required|numeric',
             'category_id' => 'required',
         ]);
@@ -93,6 +96,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->name = $validatedData['name'];
         $product->description = $validatedData['description'];
+        $product->deposit = $validatedData['deposit'];
         $product->price = $validatedData['price'];
         $product->category_id = $request->category_id;
         $product->save();
