@@ -22,7 +22,11 @@
         }   
     </style>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/starability-basic/css/starability-all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script:wght@400;700&display=swap">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Fonts -->
@@ -48,7 +52,7 @@
                     <a class="navbar-brand" href="{{ route('home') }}">Home</a>
                     <a class="navbar-brand" href="{{route('categories.products', [2]) }}">Wedding</a>
                     <a class="navbar-brand" href="{{route('categories.products', [1]) }}">Soiree</a>
-                    <a class="navbar-brand" href="{{ route('home') }}">About Us</a>
+                    {{--<a class="navbar-brand" href="{{ route('about') }}">About Us</a>--}}
                     <a class="navbar-brand" href="#contact">Contact Us</a>
                 </div>
                 <div class="user-profile">

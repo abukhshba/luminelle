@@ -49,6 +49,19 @@
                             </strong>
                         </div>
 
+                    
+
+                    @elseif($category->id == 3)
+                        <div class="project-image">
+                            <img src="{{ asset("assets/images/brand/handmade.jpeg") }}" />
+                        </div>
+                           
+                        <div class="project-info">
+                            <strong class="project-title">
+                                <span>Hand Made</span>
+                            </strong>
+                        </div>
+
                     @endif
                   </a>
                   @endforeach

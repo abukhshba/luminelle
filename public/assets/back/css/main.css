@@ -12,7 +12,6 @@
   margin-bottom: 0px;
   z-index: 999;
   position: fixed;
-  z-index: 999;
   display: flex;
 
 
@@ -151,7 +150,7 @@
   text-align: center;
   font-size: 60px;
   font-weight: bold;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .projects .content {
   margin-top: 30px;
@@ -167,7 +166,7 @@
   border-radius: 10px;
   margin: 20px;
   min-height: 14em;
-  width: 23em;
+  width: 18em;
   text-decoration: none;
   color: #000;
   overflow: hidden;
@@ -218,9 +217,9 @@
 .project-title {
     display: flex;
     justify-content: center; 
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 400;
-    font-size: 60px;
+    font-size: 35px;
     margin-top: 10px;
 }
 
@@ -238,7 +237,9 @@
 }
 
 
-
+.products-info-details p{
+  width: 80%;
+}
 
 .price-action {
   display: flex;
@@ -295,7 +296,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   padding: 20px;
 }
 
@@ -304,6 +304,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-right: 20px;
+
 }
 
 
@@ -313,34 +315,7 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Style individual thumbnails */
-
-.product-details-show {
-  display: flex;
-}
-
-.product-images {
-  margin-right: 20px;
-}
 
 .thumbnail-grid {
   display: flex;
@@ -369,6 +344,7 @@
 
 .product-rating img {
   margin-right: 3px;
+  
 }
 
 
@@ -419,7 +395,7 @@
   color: #000;
 }
 .top-titles-route{
-  font-family: 'Dancing Script', cursive;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;
 
 }
@@ -569,6 +545,137 @@ color: #fff;
   background-color: #7d8086;
   color: #fff;
 }
+
+.product-datails-show{
+  align-items: center;
+  background-color:#efefef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  border: #377130;
+  border-radius: 3%;
+  width: 100%;
+  margin-top: 40px;
+
+}  
+
+.hashline{
+  text-align: center;
+}
+
+
+.comments-reviews{
+  padding-left: 28%;
+  background-color: #f0f0f0;
+  padding-bottom: 30px;
+  
+  }
+
+  .comments-reviews h1{
+    margin-left: 0px;  
+    font-weight: bolder;  
+    padding: 20px;
+    }
+      
+
+    .profile-circle-review{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+   
+    .comment p{
+      margin-top: 10px;
+    }
+  
+    .add-comment h4{
+      background-color: #b0b0b0;
+      margin-top: 20px;
+      border-radius: 3%;
+      width: 350px;
+      padding: 10px 0 10px 10px;
+    }
+
+.form-control-review{
+  width: 40%;
+}
+
+
+.stars {
+  display: inline-flex;
+        flex-direction: row-reverse;
+}
+
+.stars input[type="radio"] {
+  display: none;
+}
+
+.stars label {
+  font-size: 24px;
+  color: #c2b874;
+  cursor: pointer;
+    
+}
+
+.stars label:hover,
+.stars label:hover ~ label,
+.stars input[type="radio"]:checked ~ label {
+  color: #ffe600;
+  
+}
+
+
+
+/*
+<style>
+    .stars {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .stars input[type="radio"] {
+        display: none;
+    }
+
+    .stars label {
+        font-size: 24px;
+        color: #ddd;
+        cursor: pointer;
+    }
+
+    .stars label:hover,
+    .stars label:hover ~ label,
+    .stars input[type="radio"]:checked ~ label {
+        color: #f4d03f;
+    }
+</style>
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

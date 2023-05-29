@@ -43,53 +43,29 @@ class ProductController extends Controller
     }
     
 
-    public function edit($id)
-    {
-        $product = Product::findOrFail($id);
 
-        return view('admin.products.edit', compact('product'));
-    }
-
-    public function update(Request $request, $id)
+    public function storeReview(Request $request)
     {
+        // Validate the incoming request data
         $validatedData = $request->validate([
-            'name' => 'required',
-            'images.*' => 'nullable|image',
-            'description' => 'required',
-            'price' => 'required|numeric',
-            'category_id' => 'required',
+            'rating' => 'required|numeric|min:1|max:5',
+            'comment' => 'required|string|max:255',
         ]);
+        $userId = Auth::id();
+        $productId = $request->input('product_id');
+        // Create a new review instance
+        $review = new Review();
+        $review->rating = $validatedData['rating'];
+        $review->comment = $validatedData['comment'];
+        $review->user_id = $userId;
+        $review->product_id = $productId;
+        // Save the review
+        $review->save();
     
-        $product = Product::findOrFail($id);
-        $product->name = $validatedData['name'];
-        $product->description = $validatedData['description'];
-        $product->price = $validatedData['price'];
-        $product->category_id = $request->category_id;
-        $product->save();
-    
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imagePath = $image->store('public/images/products');
-                $imagePath = str_replace('public/', '', $imagePath);
-    
-                $productImage = new ProductImage();
-                $productImage->product_id = $product->id;
-                $productImage->image = $imagePath;
-                $productImage->save();
-
-
-            }
-        }
-    
-        return redirect()->route('dashboard.products.index');
+        // Redirect or perform additional actions as needed
+        return redirect()->back()->with('success', 'Review stored successfully.');
     }
     
+    
 
-    public function destroy($id)
-    {
-        $product = Product::findOrFail($id);
-        $product->delete();
-
-        return redirect()->route('dashboard.products.index');
-    }
 }

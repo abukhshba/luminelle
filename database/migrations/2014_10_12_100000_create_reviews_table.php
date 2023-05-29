@@ -22,7 +22,7 @@ class CreateReviewsTable extends Migration
             
             $table->foreign('product_id')->references('id')->on('products');
             $table->double('rating');
-            $table->string('review_text');
+            $table->string('comment');
             $table->softDeletes();
             $table->timestamps();
         });

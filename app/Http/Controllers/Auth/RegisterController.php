@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'phone' => 'required|max:15',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // added validation for profile picture
+            'image' =>'image|max:10240', // added validation for profile picture
         ]);
 
         $user = new User([
@@ -70,7 +70,7 @@ class RegisterController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $fileName = $user->id . '_' . time() . '.' . $image->getClientOriginalExtension();
-            $path = public_path('images/users' . $fileName);
+            $path = public_path('images/users/' . $fileName); // Add missing slash before the file name
             $image->move(public_path('images/users'), $fileName);
             $user->image = $fileName;
         }

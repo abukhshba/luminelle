@@ -28,14 +28,6 @@ class OrderController extends Controller
     ]);
     }
 
-    public function create()
-    {
-        // $users = User::all();
-        // $products = Product::all();
-    
-        // return view('admin.orders.create', compact('users', 'products'));
-    }
-
 
     public function store(Request $request)
     {
@@ -75,56 +67,51 @@ class OrderController extends Controller
         return redirect()->route('dashboard.orders.index')->with('success', 'Order created successfully.');
     }
     
-    
-//     public function showInvoice($id)
-// {
-//     $order = Order::findOrFail($id);
-//     return view('admin.orders.invoice', compact('order'));
-// }
+
 
 
     public function show($id)
     {
-     
-        $order = Order::findOrFail($id);
-        return view('admin.orders.invoice', compact('order'));
+
+    $order = Order::findOrFail($id);
+    return view('admin.orders.invoice', compact('order'));
     }
 
     public function edit(Order $order)
     {
-        return view('admin.orders.edit', compact('order'));
+    return view('admin.orders.edit', compact('order'));
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'user_id' => 'required',
-            'product_id' => 'required',
-            'amount' => 'required',
-            'price' => 'required',
-            'discount' => 'required',
-            'deposit' => 'required',
-            'status' => 'required',
-            // 'total_price' => 'required',
-            'reservation_date' => 'required',
-        ]);
-    
-        $order = Order::findOrFail($id);
-        $order->update([
-            'user_id' => $request->user_id,
-            'product_id' => $request->product_id,
-            'amount' => $request->amount,
-            'price' => $request->price,
-            'discount' => $request->discount,
-            'deposit' => $request->deposit,
-            'status' => $request->status,
-            'total_price' => ($request->price * $request->amount)- $request->discount,
-            'reservation_date' => $request->reservation_date,
-        ]);
-    
-        return redirect()->route('dashboard.orders.index')->with('success', 'Order updated successfully.');
+    $request->validate([
+        'user_id' => 'required',
+        'product_id' => 'required',
+        'amount' => 'required',
+        'price' => 'required',
+        'discount' => 'required',
+        'deposit' => 'required',
+        'status' => 'required',
+        // 'total_price' => 'required',
+        'reservation_date' => 'required',
+    ]);
+
+    $order = Order::findOrFail($id);
+    $order->update([
+        'user_id' => $request->user_id,
+        'product_id' => $request->product_id,
+        'amount' => $request->amount,
+        'price' => $request->price,
+        'discount' => $request->discount,
+        'deposit' => $request->deposit,
+        'status' => $request->status,
+        'total_price' => ($request->price * $request->amount)- $request->discount,
+        'reservation_date' => $request->reservation_date,
+    ]);
+
+    return redirect()->route('dashboard.orders.index')->with('success', 'Order updated successfully.');
     }
-    
+
 
     public function destroy(Order $order)
     {
