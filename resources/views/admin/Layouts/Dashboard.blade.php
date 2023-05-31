@@ -410,7 +410,7 @@
                                                     <h6>
 
                                                     @if (Auth::guard('admin')->check())
-                                                        {{ Auth::guard('admin')->user()->name }}
+                                                        {{$currentAdmin->name }}
                                                     @endif
 
                                                     </h6>
