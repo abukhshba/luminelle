@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label for="add-name">الاسم</label>
                             <input type="text" class="form-control" id="add-name" name="name" value="{{old('name')}}" required />
-                        </div> 
+                        </div>
                         <div class="form-group">
                             <label for="add-description">الوصف</label>
                             <input type="text" class="form-control" id="add-description" name="description" value="{{old('description')}}" required />
@@ -53,7 +53,7 @@
 
                         </div>
                     </div>
-                    
+
 
 
                     <div class="modal-footer">
@@ -179,9 +179,9 @@
                                     <td>{{$product->category->name}}</td>
 
                                     <td>
-                                    
+
                                         @if ($product->images->count() > 0)
-                                        <img src="{{ asset('storage/' . $product->images->last()->image) }}" height="100px" class="card-img-top" alt="{{ $product->name }}">
+                                        <img src="{{ asset('storage/' . $product->images->last()->image) }}" height="100px" width="=150px" class="card-img-top" alt="{{ $product->name }}">
                                         @endif
 
                                     </td>
@@ -189,6 +189,9 @@
                                     <td>
                                         <button type="button" class="btn btn-primary" data-toggle="tooltip" title="تعديل المستخدم" data-bs-toggle="modal" data-bs-target="#edit-user-{{$product->id}}"><i class="far fa-edit"></i></button>
                                         <a href="{{route('dashboard.products.show' , $product->id)}}"><button type="button" class="btn btn-success" data-toggle="tooltip" title="عرض المنتج"  ><i class="far fa-eye"></i></button></a>
+
+
+
 
                                         <!-- Delete -->
                                         <form method="post" class="soft-delete-form" action="{{route('dashboard.products.destroy', $product->id)}}" style="display:inline-block;margin:0">

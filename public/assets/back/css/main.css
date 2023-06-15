@@ -9,7 +9,7 @@
 
 .navbar{
   background-color: rgb(226, 226, 226);
-  margin-bottom: 0px;
+  margin-bottom:-30 px;
   z-index: 999;
   position: fixed;
   display: flex;
@@ -27,13 +27,15 @@
 
 .logo-light {
     margin-right: 20px;
-    margin-left: 80px;
+    margin-left: 0px;
 }
 
 .navbar-links {
     display: flex;
     flex-grow: 1;
     justify-content: center;
+    margin-left: 200px;
+
 }
 
 .navbar-links a.navbar-brand {
@@ -53,6 +55,8 @@
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
+    margin-left: 200px;
+
 }
 
 .profile-circle img {
@@ -72,7 +76,7 @@
 }
 
 .dropdown-menu {
-    
+
     text-align: center;
     position: absolute;
     top: 100%;
@@ -92,7 +96,7 @@
     padding: 8px 0;
     text-align: center;
     margin: 0;
-    
+
 
 
 }
@@ -115,7 +119,7 @@
     background-size: cover;
     background-position: center;
   }  */
-  
+
   .cover-text {
     position: absolute;
     top: 50%;
@@ -124,13 +128,22 @@
     text-align: left;
     color: white;
   }
-  
+
+.cover-photo-title {
+    position: relative;
+    margin-top: -50px !important;
+    height: 850px;
+    background-image: url('cover3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
   .cover-text h1 {
     font-size: 40px;
     margin-bottom: 20px;
     font-weight: 600;
   }
-  
+
   .cover-text p {
     font-size: 28px;
   }
@@ -166,7 +179,7 @@
   border-radius: 10px;
   margin: 20px;
   min-height: 14em;
-  width: 18em;
+  width: 21em;
   text-decoration: none;
   color: #000;
   overflow: hidden;
@@ -216,7 +229,7 @@
 
 .project-title {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 400;
     font-size: 35px;
@@ -243,13 +256,13 @@
 
 .price-action {
   display: flex;
-  margin-top: 20px; 
+  margin-top: 20px;
 
 }
 .price-action h3 {
-  margin-right: 80px; 
-  margin-top: 20px; 
-  float:left; 
+  margin-right: 80px;
+  margin-top: 20px;
+  float:left;
   font-size: 18px;
 
 }
@@ -302,7 +315,7 @@
 /* Style the product images container */
 .product-images {
   display: flex;
-  flex-direction: column;
+      flex-direction: column;
   gap: 10px;
   margin-right: 20px;
 
@@ -317,13 +330,13 @@
 
 /* Style individual thumbnails */
 
-.thumbnail-grid {
+.thumbnail1-grid {
   display: flex;
   flex-wrap: wrap;
-  
+
 }
 
-.thumbnail {
+.thumbnail1 {
 
   margin-bottom: 0px;
 }
@@ -344,7 +357,7 @@
 
 .product-rating img {
   margin-right: 3px;
-  
+
 }
 
 
@@ -468,7 +481,7 @@
 
 .formbookingconfirmation{
   margin-top: 10px;
-  
+
 }
 .form-group{
   padding:  15px 0px 10px 0px;
@@ -496,7 +509,7 @@
 
 .whatcolor{
   background-color: #377130;
-  
+
 }
 .whatcolor button{
   color: white  ;
@@ -559,7 +572,7 @@ color: #fff;
   width: 100%;
   margin-top: 40px;
 
-}  
+}
 
 .hashline{
   text-align: center;
@@ -570,15 +583,15 @@ color: #fff;
   padding-left: 28%;
   background-color: #f0f0f0;
   padding-bottom: 30px;
-  
+
   }
 
   .comments-reviews h1{
-    margin-left: 0px;  
-    font-weight: bolder;  
+    margin-left: 0px;
+    font-weight: bolder;
     padding: 20px;
     }
-      
+
 
     .profile-circle-review{
       width: 50px;
@@ -586,11 +599,11 @@ color: #fff;
       border-radius: 50%;
       overflow: hidden;
     }
-   
+
     .comment p{
       margin-top: 10px;
     }
-  
+
     .add-comment h4{
       background-color: #b0b0b0;
       margin-top: 20px;
@@ -617,14 +630,14 @@ color: #fff;
   font-size: 24px;
   color: #c2b874;
   cursor: pointer;
-    
+
 }
 
 .stars label:hover,
 .stars label:hover ~ label,
 .stars input[type="radio"]:checked ~ label {
   color: #ffe600;
-  
+
 }
 
 
@@ -686,7 +699,7 @@ color: #fff;
 
 
  /* .footer-section { */
-  
+
   .footer {
     background-color: #41456d;
     padding-top: 30px;
@@ -718,9 +731,9 @@ color: #fff;
   .footer-section-middle h4{
     margin-bottom: 40px;
   }
-  
 
-  
+
+
   .footer-section-right {
     text-decoration: none;
     float: right;
@@ -743,13 +756,13 @@ color: #fff;
     background-color: #292c44;
     padding: 15px;
     text-align: center;
-    
+
     padding-left:8%;
     margin-top: 3.5%;
     font-size: 14px;
     color: #ffffff;
   }
-  
+
   .bottom-footer p {
     margin: 0;
   }

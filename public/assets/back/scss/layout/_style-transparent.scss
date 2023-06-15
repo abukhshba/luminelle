@@ -2725,9 +2725,9 @@ body.transparent-theme {
   &.app.sidebar-mini .desktop-logo.logo-dark {
     display: block;
   }
-  &.app.sidebar-mini .desktop-logo.logo-light {
-    display: none;
-  }
+  //&.app.sidebar-mini .desktop-logo.logo-light {
+  //  display: none;
+  //}
   .table-striped > tbody > tr:nth-of-type(odd) > * {
     color: $transparent-color;
   }

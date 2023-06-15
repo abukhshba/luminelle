@@ -18,9 +18,9 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700&display=swap" rel="stylesheet">
+{{--    <link rel="preconnect" href="https://fonts.googleapis.com">--}}
+{{--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--}}
+{{--    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700&display=swap" rel="stylesheet">--}}
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/favicons/apple-touch-icon.png')}}">
@@ -427,7 +427,7 @@
                                         </form>
                                     </div>
                                 </li>
-                 
+
                         </div>
                     </div>
                 </div>
@@ -441,7 +441,7 @@
             <aside class="app-sidebar sidebar-scroll">
                 <div class="main-sidebar-header active">
                     <a class="desktop-logo logo-light active" href="{{route('dashboard.home')}}"><img src="{{asset('assets/images/brand/logo.png')}}" class="main-logo" alt="logo"></a>
-                   
+
                 </div>
 
                 @include('admin.Layouts.Sidebar')

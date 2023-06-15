@@ -5,18 +5,18 @@
 
         <h5  class="top-titles-route"><a href="{{route('home')}}"><span>Home </span></a> <span> / </span><a href="{{ route('categories.products', [$category->id]) }}"><span> {{ $category->name }} Dresses</span></a></h5>
 
-        <section class="projects" id="projects">   
+        <section class="projects" id="projects">
 
 
-            <div class="contentproduct">
+            <div class="content">
                 <div class="row">
                     @foreach ($products as $product)
                     <div style="align-items: center" class="col-md-4">
-                        <div class="project-cardproduct"> 
+                        <div class="project-card">
                             <a href="{{ route('products.show', [$product->id]) }}" class="product-show-card">
                                 <div class="project-image">
                                     @if ($product->images->count() > 0)
-                                    <img src="{{ asset('storage/' . $product->images->first()->image) }}" height="300px" class="card-img-top" alt="{{ $product->name }}">
+                                        <img src="{{ asset('storage/' . $product->images->first()->image) }}" style="height: 300px!important" class="card-img-top" alt="{{ $product->name }}">
                                     @endif
                                 </div>
                                 <div class="project-info">
@@ -42,7 +42,7 @@
                     @endforeach
                 </div>
                 </div>
-            
+
         </section>
 
 

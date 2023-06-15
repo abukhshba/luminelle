@@ -4,7 +4,7 @@
 
 
     <section class="container">
-      <h5 class="top-titles-route"><a  href="{{route('home')}}"><span>Home </span></a> 
+      <h5 class="top-titles-route"><a  href="{{route('home')}}"><span>Home </span></a>
         <span> / </span>
         <a href="{{ route('categories.products', [$categoryID]) }}"><span> {{ $categoryName }}</span></a>
         <span> / </span> <span>{{ $product->name }}</span></h5>
@@ -12,30 +12,33 @@
 
     <section class="product-datails-show">
       <div class="product-images">
-        <div class="thumbnail-grid">
+        <div class="thumbnail1-grid">
 
-          <div class="thumbnail">
+          <div class="thumbnail1">
             @foreach ($product->images as $index => $image)
               @if ($index === 3)
                 <img src="{{ asset('storage/' . $image->image) }}"
-                      width="350px" height="350px"
-                      alt="Product Image"><br>
+
+                     style="height: 300px!important ; width: 300px!important ; display: flex !important;"
+
+                      alt="Product Image">
               @else
-              
+
                 <img src="{{ asset('storage/' . $image->image) }}"
+                     style="height: 100px!important ; width: 100px!important"
                       width="100px" height="100px"
-                      alt="Product Image"> 
+                      alt="Product Image">
               @endif
-              
+
             @endforeach
           </div>
         </div>
       </div>
-      
+
       <div class="products-info-details">
         <h1>{{ $product->name }}</h1>
         <p>{{ $product->description }}</p>
-    
+
         {{-- Rating --}}
         <div class="product-rating">
           @if ($averageRating < 1.25)
@@ -98,7 +101,7 @@
             <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
             <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
             <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-       
+
           @elseif($averageRating>4 && $averageRating<=4.25)
             Rating: {{$averageRating}}
             <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
@@ -135,11 +138,11 @@
 
           @endif
         </div>
-    
-        
+
+
         {{-- end rating --}}
-      
-      
+
+
         <div class="price-action">
           @if($product->is_discounted)
           <div class="price-details">
@@ -160,7 +163,7 @@
 ------------------------------------------------------------------------------------
   </section>
 
-  
+
   <section class="">
   <!-- Existing code -->
 </section>
@@ -172,7 +175,7 @@
   @foreach ($product->reviews as $review)
     <div class="comment">
 
-   
+
 
         <div class="user-profile">
             <div class="profile-circle">
@@ -180,14 +183,14 @@
             </div>
             <div class="profile-dropdown">
                 <h4 class="profile-name-review">{{ $review->user->name }}</h4>
-                
+
             </div>
         </div>
-    
 
-     
+
+
       <div class="rating">
-     
+
 
         <div class="product-rating">
           @if ($review->rating < 1.25)
@@ -250,7 +253,7 @@
             <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
             <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
             <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
-       
+
           @elseif($review->rating>4 && $review->rating<=4.25)
             Rating: {{$review->rating}}
             <img src="{{ asset('assets/images/brand/star1.png') }}" height="15px" width="15px" class="main-logo" alt="logo">
@@ -287,7 +290,7 @@
 
           @endif
 
-      
+
       </div>
     </div>
     <p><span>Comment:</span> {{ $review->comment }}</p>
@@ -296,7 +299,7 @@
   @endforeach
 
   <!-- Add comment and rating form -->
- 
+
   <div class="add-comment">
     <h4>Add Your Comment and Rating</h4>
     <form class="form-inline" action="{{ route('reviews.store', [$product->id]) }}" method="POST">
@@ -306,37 +309,38 @@
         <label for="rating">Rating (1-5):</label>
         <input class="form-control" type="number" step="0.01" min="1" max="5" name="rating" id="rating" required>
       </div> --}}
-      
+
 
 
       <div class="form-group">
         <label for="rating">Rating:</label>
         <div class="stars">
+
             <input type="radio" id="rating5" name="rating" value="5">
             <label for="rating5"><i class="fas fa-star"></i></label>
-    
+
             <input type="radio" id="rating4" name="rating" value="4">
             <label for="rating4"><i class="fas fa-star"></i></label>
-    
+
             <input type="radio" id="rating3" name="rating" value="3">
             <label for="rating3"><i class="fas fa-star"></i></label>
-    
+
             <input type="radio" id="rating2" name="rating" value="2">
             <label for="rating2"><i class="fas fa-star"></i></label>
-    
+
             <input type="radio" id="rating1" name="rating" value="1">
             <label for="rating1"><i class="fas fa-star"></i></label>
         </div>
     </div>
-    
 
-    
-      
+
+
+
       <div class="form-group">
         <label for="comment">Comment:</label>
         <textarea name="comment" id="comment" class="form-control" rows="3" required></textarea>
       </div>
-      
+
       <button type="submit" class="btn btn-success">Submit Review</button>
     </form>
   </div>
