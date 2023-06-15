@@ -4,10 +4,10 @@
 
 
     <div class="container">
-      <h5 class="top-titles-route"><a  href="{{route('home')}}"><span>Home </span></a> 
+      <h5 class="top-titles-route"><a  href="{{route('home')}}"><span>Home </span></a>
         <span> / </span>
         <a href="{{ route('categories.products', [$categoryID]) }}"><span> {{ $categoryName }}</span></a>
-        <span> / </span> 
+        <span> / </span>
         <a href="{{ route('products.show', [$product->id]) }}">
         <span>{{ $product->name }}</span></a>
 
@@ -15,8 +15,8 @@
           <button type="button" class="btn">Back to the product</button>
         </a>
       </h5>
- 
-        
+
+
         <table class="table table-bordered">
           <thead>
             <tr class="table-fields">
@@ -29,7 +29,7 @@
             <tr class="table-secondary">
               <td>{{ $product->name }}</td>
               <td>
-                
+
                 @if ($product->is_discounted)
                     {{ $product->price - $product->discount }} EGP
 
@@ -42,29 +42,29 @@
             </tr>
           </tbody>
         </table>
-        
+
 
           <form class="formbookingconfirmation" action="{{ route('orders.create' ) }}" method="POST">
               @csrf
-              
+
 
 
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-              
+
 
               @if ($product->is_discounted)
-          
+
                   <input type="hidden" name="price" value="{{ $product->price - $product->discount }}">
-              
+
 
               @else
-             
+
                 <input type="hidden" name="price" value="{{ $product->price }}">
-             
+
               @endif
 
                 <input type="hidden" name="deposit" value="{{ $product->deposit }}">
-             
+
 
               <input type="hidden" name="status" value="تم الطلب وبإنتظار دفع العربون">
 
@@ -75,11 +75,11 @@
               </div>
 
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" class="form-check-input" id="">
                 <label class="form-check-label-check" for="exampleCheck1">I read the instructions and I will communicate with the management to confirm the payment</label>
               </div>
               <div class="confirmButton">
-              <button type="submit" class="btn btn-primary" id="confirmButton" disabled>Confirm Reservation</button>
+              <button type="submit" class="btn btn-primary" id="confirmButton" >Confirm Reservation</button>
               </div>
             </form>
     </div>
@@ -96,8 +96,8 @@
       });
 
     </script>
-         
-   
+
+
 @endsection
 
 

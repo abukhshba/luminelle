@@ -11,29 +11,19 @@
 
     <link href="{{ asset('assets/back/css/main.css') }}" rel="stylesheet">
 
-    <style>
-        .cover-photo-title {
-            position: relative;
-            margin-top: -24px;
-            height: 850px;
-            background-image: url('{{ asset("assets/images/brand/cover1.jpg") }}');
-            background-size: cover;
-            background-position: center;
-        }   
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/starability-basic/css/starability-all.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/starability-basic/css/starability-all.min.css">--}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">--}}
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script:wght@400;700&display=swap">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="shortcut icon" type="image/png" href="/images/icon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -44,10 +34,10 @@
         <nav class="navbar">
 
             <div class="container navbar">
-                <a class="logo-light" href="{{ route('home') }}">
-                    <img src="{{ asset('assets/images/brand/logo.png') }}" height="50px" width="140px" class="main-logo" alt="logo">
+                <a class="" href="{{ route('home') }}">
+                    <img src="{{ asset('assets/images/brand/logo.png') }}" style="width: 150px important ; height:50px " class="main-logo" alt="logo">
                 </a>
-            
+
                 <div class="navbar-links">
                     <a class="navbar-brand" href="{{ route('home') }}">Home</a>
                     <a class="navbar-brand" href="{{route('categories.products', [2]) }}">Wedding</a>
@@ -76,7 +66,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
             </div>
         </nav>
 
@@ -118,8 +108,8 @@
           </div>
         </div>
       </footer>
-      
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>     
+
+
+{{--      <script src="{{ asset('assets/back/css/cdn/all.min.js') }}"></script>--}}
 </body>
 </html>
