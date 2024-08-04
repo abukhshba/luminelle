@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers\Admin;
 
@@ -37,11 +37,11 @@ class ProductController extends Controller
             'images.*' => 'required|image',
             'description' => 'required',
             'price' => 'required|numeric',
-            'deposit' => 'required|numeric',
+            'deposit' => 'numeric',
             'category_id' => 'required',
         ]);
 
-        
+
         $product = new Product();
         $product->name = $validatedData['name'];
         $product->description = $validatedData['description'];
@@ -92,7 +92,7 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'category_id' => 'required',
         ]);
-    
+
         $product = Product::findOrFail($id);
         $product->name = $validatedData['name'];
         $product->description = $validatedData['description'];
@@ -100,12 +100,12 @@ class ProductController extends Controller
         $product->price = $validatedData['price'];
         $product->category_id = $request->category_id;
         $product->save();
-    
+
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $imagePath = $image->store('public/images/products');
                 $imagePath = str_replace('public/', '', $imagePath);
-    
+
                 $productImage = new ProductImage();
                 $productImage->product_id = $product->id;
                 $productImage->image = $imagePath;
@@ -115,10 +115,10 @@ class ProductController extends Controller
 
             }
         }
-    
+
         return redirect()->route('dashboard.products.index');
     }
-    
+
 
     public function destroy($id)
     {
