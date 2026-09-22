@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Widgets;
 
 use App\Enums\PaymentDirection;
+use App\Enums\PaymentState;
 use App\Models\Payment;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
@@ -18,43 +19,47 @@ class FinancialOverviewWidget extends StatsOverviewWidget
         $monthStart = today()->startOfMonth();
 
         $todayIncome = Payment::where('payment_direction', PaymentDirection::In)
+            ->where('status', PaymentState::Confirmed)
             ->whereDate('date', $today)
             ->sum('amount');
 
         $todayExpenses = Payment::where('payment_direction', PaymentDirection::Out)
+            ->where('status', PaymentState::Confirmed)
             ->whereDate('date', $today)
             ->sum('amount');
 
         $monthIncome = Payment::where('payment_direction', PaymentDirection::In)
+            ->where('status', PaymentState::Confirmed)
             ->where('date', '>=', $monthStart)
             ->sum('amount');
 
         $monthExpenses = Payment::where('payment_direction', PaymentDirection::Out)
+            ->where('status', PaymentState::Confirmed)
             ->where('date', '>=', $monthStart)
             ->sum('amount');
 
         return [
-            Stat::make("Today's Income", 'EGP '.number_format($todayIncome, 2))
+            Stat::make("Today's Income", 'EGP '.number_format((float) $todayIncome, 2))
                 ->icon(Heroicon::OutlinedArrowTrendingUp)
                 ->description('Cash in today')
                 ->descriptionIcon(Heroicon::ArrowUp)
                 ->descriptionColor('success')
                 ->color('success'),
 
-            Stat::make("Today's Expenses", 'EGP '.number_format($todayExpenses, 2))
+            Stat::make("Today's Expenses", 'EGP '.number_format((float) $todayExpenses, 2))
                 ->icon(Heroicon::OutlinedArrowTrendingDown)
                 ->description('Cash out today')
                 ->descriptionIcon(Heroicon::ArrowDown)
                 ->descriptionColor('danger')
                 ->color('danger'),
 
-            Stat::make('Month Income', 'EGP '.number_format($monthIncome, 2))
+            Stat::make('Month Income', 'EGP '.number_format((float) $monthIncome, 2))
                 ->icon(Heroicon::OutlinedBanknotes)
                 ->description('Total in — '.today()->format('F'))
                 ->descriptionColor('success')
                 ->color('success'),
 
-            Stat::make('Month Expenses', 'EGP '.number_format($monthExpenses, 2))
+            Stat::make('Month Expenses', 'EGP '.number_format((float) $monthExpenses, 2))
                 ->icon(Heroicon::OutlinedReceiptPercent)
                 ->description('Total out — '.today()->format('F'))
                 ->descriptionColor('danger')

@@ -6,7 +6,10 @@ namespace App\Filament\Resources\Reservations\RelationManagers;
 
 use App\Enums\PaymentDirection;
 use App\Enums\PaymentMethod;
+use App\Enums\PaymentState;
+use App\Models\Payment;
 use App\Models\PaymentCategory;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
@@ -19,6 +22,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -39,6 +43,10 @@ class PaymentsRelationManager extends RelationManager
                 Select::make('payment_method')
                     ->options(PaymentMethod::class)
                     ->required(),
+                Select::make('status')
+                    ->options(PaymentState::class)
+                    ->default(PaymentState::Draft->value)
+                    ->required(),
                 Select::make('payment_category_id')
                     ->relationship('paymentCategory', 'name')
                     ->nullable(),
@@ -57,6 +65,8 @@ class PaymentsRelationManager extends RelationManager
             ->recordTitleAttribute('code')
             ->columns([
                 TextColumn::make('code'),
+                TextColumn::make('status')
+                    ->badge(),
                 TextColumn::make('date')
                     ->date(),
                 TextColumn::make('amount')
@@ -86,6 +96,17 @@ class PaymentsRelationManager extends RelationManager
                     }),
             ])
             ->recordActions([
+                Action::make('changeStatus')
+                    ->label('Change Status')
+                    ->icon(Heroicon::OutlinedArrowPath)
+                    ->color('gray')
+                    ->form([
+                        Select::make('status')
+                            ->options(PaymentState::class)
+                            ->required(),
+                    ])
+                    ->fillForm(fn (Payment $record): array => ['status' => $record->status->value])
+                    ->action(fn (Payment $record, array $data) => $record->update(['status' => $data['status']])),
                 EditAction::make(),
                 DeleteAction::make(),
             ])

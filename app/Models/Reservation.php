@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Activitylog\Models\Concerns\LogsActivity;
 use Spatie\Activitylog\Support\LogOptions;
 
-#[Fillable(['code', 'customer_id', 'reservation_date', 'delivery_date', 'return_date', 'subtotal', 'discount_type', 'discount_value', 'total_amount', 'insurance_amount', 'status', 'notes', 'created_by'])]
+#[Fillable(['code', 'customer_id', 'reservation_date', 'delivery_date', 'return_date', 'subtotal', 'discount_type', 'discount_value', 'total_amount', 'insurance_amount', 'down_payment', 'remaining_amount', 'status', 'notes', 'created_by'])]
 class Reservation extends Model
 {
     use HasFactory, LogsActivity;
@@ -30,6 +30,8 @@ class Reservation extends Model
             'discount_value' => 'decimal:2',
             'total_amount' => 'decimal:2',
             'insurance_amount' => 'decimal:2',
+            'down_payment' => 'decimal:2',
+            'remaining_amount' => 'decimal:2',
             'reservation_date' => 'date',
             'delivery_date' => 'date',
             'return_date' => 'date',

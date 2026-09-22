@@ -7,10 +7,13 @@ namespace App\Filament\Resources\Reservations\Tables;
 use App\Enums\PaymentStatus;
 use App\Enums\ReservationStatus;
 use App\Models\Reservation;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
@@ -68,6 +71,17 @@ class ReservationsTable
                     ),
             ])
             ->recordActions([
+                Action::make('changeStatus')
+                    ->label('Change Status')
+                    ->icon(Heroicon::OutlinedArrowPath)
+                    ->color('gray')
+                    ->form([
+                        Select::make('status')
+                            ->options(ReservationStatus::class)
+                            ->required(),
+                    ])
+                    ->fillForm(fn (Reservation $record): array => ['status' => $record->status->value])
+                    ->action(fn (Reservation $record, array $data) => $record->update(['status' => $data['status']])),
                 EditAction::make(),
             ])
             ->toolbarActions([

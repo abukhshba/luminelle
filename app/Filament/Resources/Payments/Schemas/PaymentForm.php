@@ -6,6 +6,7 @@ namespace App\Filament\Resources\Payments\Schemas;
 
 use App\Enums\PaymentDirection;
 use App\Enums\PaymentMethod;
+use App\Enums\PaymentState;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
@@ -23,11 +24,16 @@ class PaymentForm
         return $schema
             ->components([
                 Section::make('Payment Details')
+                    ->columnSpanFull()
                     ->schema([
                         TextInput::make('code')
                             ->disabled()
                             ->dehydrated(false)
                             ->hiddenOn('create'),
+                        Select::make('status')
+                            ->options(PaymentState::class)
+                            ->default(PaymentState::Draft->value)
+                            ->required(),
                         Select::make('payment_direction')
                             ->options(PaymentDirection::class)
                             ->required()
@@ -59,22 +65,27 @@ class PaymentForm
                     ->columns(2),
 
                 Section::make('Link to Entity (optional)')
+                    ->columnSpanFull()
                     ->schema([
                         Select::make('reservation_id')
                             ->relationship('reservation', 'code')
                             ->searchable()
+                            ->preload()
                             ->nullable(),
                         Select::make('supplier_bill_id')
                             ->relationship('supplierBill', 'bill_number')
                             ->searchable()
+                            ->preload()
                             ->nullable(),
                         Select::make('customer_id')
                             ->relationship('customer', 'name')
                             ->searchable()
+                            ->preload()
                             ->nullable(),
                         Select::make('supplier_id')
                             ->relationship('supplier', 'name')
                             ->searchable()
+                            ->preload()
                             ->nullable(),
                     ])
                     ->columns(2),

@@ -11,12 +11,13 @@ use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -35,7 +36,7 @@ class ReservationItemsRelationManager extends RelationManager
                     ->preload()
                     ->required()
                     ->live()
-                    ->afterStateUpdated(function (Forms\Set $set, ?int $state) {
+                    ->afterStateUpdated(function (Set $set, ?int $state) {
                         if ($state) {
                             $dress = Dress::find($state);
                             $set('price', $dress?->rental_price ?? 0);
@@ -46,7 +47,7 @@ class ReservationItemsRelationManager extends RelationManager
                     ->prefix('EGP')
                     ->required()
                     ->live()
-                    ->afterStateUpdated(function (Forms\Set $set, Forms\Get $get) {
+                    ->afterStateUpdated(function (Set $set, Get $get) {
                         $set('total', max(0, (float) ($get('price') ?? 0) - (float) ($get('discount') ?? 0)));
                     }),
                 TextInput::make('discount')
@@ -54,7 +55,7 @@ class ReservationItemsRelationManager extends RelationManager
                     ->prefix('EGP')
                     ->default(0)
                     ->live()
-                    ->afterStateUpdated(function (Forms\Set $set, Forms\Get $get) {
+                    ->afterStateUpdated(function (Set $set, Get $get) {
                         $set('total', max(0, (float) ($get('price') ?? 0) - (float) ($get('discount') ?? 0)));
                     }),
                 TextInput::make('total')

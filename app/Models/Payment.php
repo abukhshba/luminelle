@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Enums\PaymentDirection;
 use App\Enums\PaymentMethod;
+use App\Enums\PaymentState;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +16,7 @@ use Spatie\Activitylog\Support\LogOptions;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-#[Fillable(['code', 'amount', 'date', 'payment_direction', 'payment_method', 'payment_category_id', 'customer_id', 'supplier_id', 'reservation_id', 'supplier_bill_id', 'notes', 'created_by'])]
+#[Fillable(['code', 'amount', 'date', 'payment_direction', 'payment_method', 'status', 'payment_category_id', 'customer_id', 'supplier_id', 'reservation_id', 'supplier_bill_id', 'notes', 'created_by'])]
 class Payment extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, LogsActivity;
@@ -27,6 +28,7 @@ class Payment extends Model implements HasMedia
             'date' => 'date',
             'payment_direction' => PaymentDirection::class,
             'payment_method' => PaymentMethod::class,
+            'status' => PaymentState::class,
         ];
     }
 

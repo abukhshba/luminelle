@@ -6,10 +6,15 @@ namespace App\Filament\Resources\Payments\Tables;
 
 use App\Enums\PaymentDirection;
 use App\Enums\PaymentMethod;
+use App\Enums\PaymentState;
+use App\Models\Payment;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
@@ -23,6 +28,9 @@ class PaymentsTable
             ->columns([
                 TextColumn::make('code')
                     ->searchable()
+                    ->sortable(),
+                TextColumn::make('status')
+                    ->badge()
                     ->sortable(),
                 TextColumn::make('date')
                     ->date()
@@ -44,6 +52,8 @@ class PaymentsTable
                     ->label('By'),
             ])
             ->filters([
+                SelectFilter::make('status')
+                    ->options(PaymentState::class),
                 SelectFilter::make('payment_direction')
                     ->options(PaymentDirection::class),
                 SelectFilter::make('payment_method')
@@ -61,6 +71,17 @@ class PaymentsTable
                     ),
             ])
             ->recordActions([
+                Action::make('changeStatus')
+                    ->label('Change Status')
+                    ->icon(Heroicon::OutlinedArrowPath)
+                    ->color('gray')
+                    ->form([
+                        Select::make('status')
+                            ->options(PaymentState::class)
+                            ->required(),
+                    ])
+                    ->fillForm(fn (Payment $record): array => ['status' => $record->status->value])
+                    ->action(fn (Payment $record, array $data) => $record->update(['status' => $data['status']])),
                 EditAction::make(),
             ])
             ->toolbarActions([
