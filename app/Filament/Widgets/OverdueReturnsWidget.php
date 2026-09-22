@@ -19,6 +19,7 @@ class OverdueReturnsWidget extends TableWidget
     {
         return $table
             ->heading('Overdue Returns')
+            ->description('Delivered reservations past their return date')
             ->query(
                 fn (): Builder => Reservation::query()
                     ->with('customer')
@@ -28,6 +29,8 @@ class OverdueReturnsWidget extends TableWidget
             )
             ->columns([
                 TextColumn::make('code')
+                    ->badge()
+                    ->color('danger')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('customer.name')
@@ -35,10 +38,11 @@ class OverdueReturnsWidget extends TableWidget
                     ->sortable(),
                 TextColumn::make('return_date')
                     ->date()
-                    ->sortable()
-                    ->color('danger'),
+                    ->color('danger')
+                    ->sortable(),
                 TextColumn::make('total_amount')
-                    ->money('EGP'),
+                    ->money('EGP')
+                    ->color('success'),
             ]);
     }
 }

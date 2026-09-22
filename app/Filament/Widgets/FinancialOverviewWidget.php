@@ -6,6 +6,7 @@ namespace App\Filament\Widgets;
 
 use App\Enums\PaymentDirection;
 use App\Models\Payment;
+use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -34,12 +35,29 @@ class FinancialOverviewWidget extends StatsOverviewWidget
 
         return [
             Stat::make("Today's Income", 'EGP '.number_format($todayIncome, 2))
+                ->icon(Heroicon::OutlinedArrowTrendingUp)
+                ->description('Cash in today')
+                ->descriptionIcon(Heroicon::ArrowUp)
+                ->descriptionColor('success')
                 ->color('success'),
+
             Stat::make("Today's Expenses", 'EGP '.number_format($todayExpenses, 2))
+                ->icon(Heroicon::OutlinedArrowTrendingDown)
+                ->description('Cash out today')
+                ->descriptionIcon(Heroicon::ArrowDown)
+                ->descriptionColor('danger')
                 ->color('danger'),
+
             Stat::make('Month Income', 'EGP '.number_format($monthIncome, 2))
+                ->icon(Heroicon::OutlinedBanknotes)
+                ->description('Total in — '.today()->format('F'))
+                ->descriptionColor('success')
                 ->color('success'),
+
             Stat::make('Month Expenses', 'EGP '.number_format($monthExpenses, 2))
+                ->icon(Heroicon::OutlinedReceiptPercent)
+                ->description('Total out — '.today()->format('F'))
+                ->descriptionColor('danger')
                 ->color('danger'),
         ];
     }

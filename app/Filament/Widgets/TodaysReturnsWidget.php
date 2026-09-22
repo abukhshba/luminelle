@@ -19,6 +19,7 @@ class TodaysReturnsWidget extends TableWidget
     {
         return $table
             ->heading("Today's Returns")
+            ->description('Reservations due back today')
             ->query(
                 fn (): Builder => Reservation::query()
                     ->with('customer')
@@ -27,6 +28,8 @@ class TodaysReturnsWidget extends TableWidget
             )
             ->columns([
                 TextColumn::make('code')
+                    ->badge()
+                    ->color('warning')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('customer.name')
@@ -34,6 +37,7 @@ class TodaysReturnsWidget extends TableWidget
                     ->sortable(),
                 TextColumn::make('return_date')
                     ->date()
+                    ->color('warning')
                     ->sortable(),
                 TextColumn::make('status')
                     ->badge(),

@@ -18,7 +18,8 @@ class UpcomingReservationsWidget extends TableWidget
     public function table(Table $table): Table
     {
         return $table
-            ->heading('Upcoming Deliveries (Next 7 Days)')
+            ->heading('Upcoming Deliveries')
+            ->description('Next 7 days — sorted by delivery date')
             ->query(
                 fn (): Builder => Reservation::query()
                     ->with('customer')
@@ -28,6 +29,8 @@ class UpcomingReservationsWidget extends TableWidget
             )
             ->columns([
                 TextColumn::make('code')
+                    ->badge()
+                    ->color('info')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('customer.name')
@@ -35,9 +38,11 @@ class UpcomingReservationsWidget extends TableWidget
                     ->sortable(),
                 TextColumn::make('delivery_date')
                     ->date()
+                    ->color('info')
                     ->sortable(),
                 TextColumn::make('total_amount')
-                    ->money('EGP'),
+                    ->money('EGP')
+                    ->color('success'),
                 TextColumn::make('status')
                     ->badge(),
             ]);
