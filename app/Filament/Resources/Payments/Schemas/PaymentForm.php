@@ -24,6 +24,10 @@ class PaymentForm
             ->components([
                 Section::make('Payment Details')
                     ->schema([
+                        TextInput::make('code')
+                            ->disabled()
+                            ->dehydrated(false)
+                            ->hiddenOn('create'),
                         Select::make('payment_direction')
                             ->options(PaymentDirection::class)
                             ->required()

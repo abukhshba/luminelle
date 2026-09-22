@@ -21,8 +21,10 @@ class DressForm
                 Section::make('Basic Information')
                     ->schema([
                         TextInput::make('code')
-                            ->required()
-                            ->unique(ignoreRecord: true),
+                            ->disabled()
+                            ->dehydrated(false)
+                            ->hiddenOn('create')
+                            ->placeholder('Auto-generated'),
                         TextInput::make('title')
                             ->required(),
                         Select::make('category_id')

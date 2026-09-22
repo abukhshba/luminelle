@@ -25,7 +25,7 @@ class ReservationForm
                         TextInput::make('code')
                             ->disabled()
                             ->dehydrated(false)
-                            ->visibleOn('view'),
+                            ->hiddenOn('create'),
                         Select::make('customer_id')
                             ->relationship('customer', 'name')
                             ->searchable()

@@ -30,6 +30,16 @@ class Dress extends Model implements HasMedia
         ];
     }
 
+    protected static function booted(): void
+    {
+        static::creating(function (Dress $dress): void {
+            if (empty($dress->code)) {
+                $lastId = static::max('id') ?? 0;
+                $dress->code = 'DRS-'.str_pad((string) ($lastId + 1), 5, '0', STR_PAD_LEFT);
+            }
+        });
+    }
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()

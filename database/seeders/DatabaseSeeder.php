@@ -11,6 +11,7 @@ use App\Models\Supplier;
 use App\Models\SupplierBill;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,26 +19,33 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(PaymentCategorySeeder::class);
 
-        $admin = User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@luminelle.test',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'abukhshba77@gmail.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('123123123'),
+            ]
+        );
 
-        $categories = Category::factory()->count(5)->create();
-        $suppliers = Supplier::factory()->count(4)->create();
+        if (! app()->isProduction()) {
+            $admin = User::where('email', 'abukhshba77@gmail.com')->first();
 
-        Dress::factory()->count(20)->create([
-            'category_id' => fn () => $categories->random()->id,
-            'supplier_id' => fn () => $suppliers->random()->id,
-        ]);
+            $categories = Category::factory()->count(5)->create();
+            $suppliers = Supplier::factory()->count(4)->create();
 
-        Customer::factory()->count(10)->create();
-
-        foreach ($suppliers->take(2) as $supplier) {
-            SupplierBill::factory()->count(3)->create([
-                'supplier_id' => $supplier->id,
-                'created_by' => $admin->id,
+            Dress::factory()->count(20)->create([
+                'category_id' => fn () => $categories->random()->id,
+                'supplier_id' => fn () => $suppliers->random()->id,
             ]);
+
+            Customer::factory()->count(10)->create();
+
+            foreach ($suppliers->take(2) as $supplier) {
+                SupplierBill::factory()->count(3)->create([
+                    'supplier_id' => $supplier->id,
+                    'created_by' => $admin->id,
+                ]);
+            }
         }
     }
 }
