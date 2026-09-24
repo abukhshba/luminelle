@@ -17,27 +17,27 @@ class DressStatusWidget extends StatsOverviewWidget
         $total = Dress::count();
 
         return [
-            Stat::make('Available', Dress::where('status', DressStatus::Available)->count())
+            Stat::make(__('Available'), Dress::where('status', DressStatus::Available)->count())
                 ->icon(Heroicon::OutlinedCheckCircle)
-                ->description('Ready to rent')
+                ->description(__('Ready to rent'))
                 ->descriptionColor('success')
                 ->color('success'),
 
-            Stat::make('Reserved', Dress::where('status', DressStatus::Reserved)->count())
+            Stat::make(__('Reserved'), Dress::where('status', DressStatus::Reserved)->count())
                 ->icon(Heroicon::OutlinedCalendarDays)
-                ->description('Booked, not yet delivered')
+                ->description(__('Booked, not yet delivered'))
                 ->descriptionColor('warning')
                 ->color('warning'),
 
-            Stat::make('Rented', Dress::where('status', DressStatus::Rented)->count())
+            Stat::make(__('Rented'), Dress::where('status', DressStatus::Rented)->count())
                 ->icon(Heroicon::OutlinedSwatch)
-                ->description('Currently with customers')
+                ->description(__('Currently with customers'))
                 ->descriptionColor('info')
                 ->color('info'),
 
-            Stat::make('Maintenance', Dress::where('status', DressStatus::Maintenance)->count())
+            Stat::make(__('Maintenance'), Dress::where('status', DressStatus::Maintenance)->count())
                 ->icon(Heroicon::OutlinedWrenchScrewdriver)
-                ->description('Out of service')
+                ->description(__('Out of service'))
                 ->descriptionColor('gray')
                 ->color('gray'),
         ];

@@ -16,9 +16,9 @@ enum PaymentStatus: string implements HasColor, HasLabel
     public function getLabel(): string
     {
         return match ($this) {
-            self::NotPaid => 'Not Paid',
-            self::PartiallyPaid => 'Partially Paid',
-            self::Paid => 'Paid',
+            self::NotPaid => __('Not Paid'),
+            self::PartiallyPaid => __('Partially Paid'),
+            self::Paid => __('Paid'),
         };
     }
 

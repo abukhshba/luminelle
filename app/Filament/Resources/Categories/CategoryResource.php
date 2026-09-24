@@ -25,7 +25,17 @@ class CategoryResource extends Resource
 
     public static function getNavigationGroup(): string|\UnitEnum|null
     {
-        return 'Catalog';
+        return __('Catalog');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Category');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Categories');
     }
 
     public static function form(Schema $schema): Schema

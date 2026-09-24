@@ -25,13 +25,13 @@ class UsersTable
                     ->sortable(),
 
                 TextColumn::make('email_verified_at')
-                    ->label('Verified')
+                    ->label(__('Verified'))
                     ->dateTime('d M Y')
-                    ->placeholder('Not verified')
+                    ->placeholder(__('Not verified'))
                     ->sortable(),
 
                 TextColumn::make('created_at')
-                    ->label('Created')
+                    ->label(__('Created'))
                     ->dateTime('d M Y')
                     ->sortable(),
             ])

@@ -24,7 +24,17 @@ class SupplierBillResource extends Resource
 
     public static function getNavigationGroup(): string|\UnitEnum|null
     {
-        return 'Finance';
+        return __('Finance');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Supplier Bill');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Supplier Bills');
     }
 
     public static function form(Schema $schema): Schema

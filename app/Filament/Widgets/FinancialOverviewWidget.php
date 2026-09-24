@@ -39,29 +39,29 @@ class FinancialOverviewWidget extends StatsOverviewWidget
             ->sum('amount');
 
         return [
-            Stat::make("Today's Income", 'EGP '.number_format((float) $todayIncome, 2))
+            Stat::make(__("Today's Income"), 'EGP '.number_format((float) $todayIncome, 2))
                 ->icon(Heroicon::OutlinedArrowTrendingUp)
-                ->description('Cash in today')
+                ->description(__('Cash in today'))
                 ->descriptionIcon(Heroicon::ArrowUp)
                 ->descriptionColor('success')
                 ->color('success'),
 
-            Stat::make("Today's Expenses", 'EGP '.number_format((float) $todayExpenses, 2))
+            Stat::make(__("Today's Expenses"), 'EGP '.number_format((float) $todayExpenses, 2))
                 ->icon(Heroicon::OutlinedArrowTrendingDown)
-                ->description('Cash out today')
+                ->description(__('Cash out today'))
                 ->descriptionIcon(Heroicon::ArrowDown)
                 ->descriptionColor('danger')
                 ->color('danger'),
 
-            Stat::make('Month Income', 'EGP '.number_format((float) $monthIncome, 2))
+            Stat::make(__('Month Income'), 'EGP '.number_format((float) $monthIncome, 2))
                 ->icon(Heroicon::OutlinedBanknotes)
-                ->description('Total in — '.today()->format('F'))
+                ->description(__('Total in — :month', ['month' => today()->translatedFormat('F')]))
                 ->descriptionColor('success')
                 ->color('success'),
 
-            Stat::make('Month Expenses', 'EGP '.number_format((float) $monthExpenses, 2))
+            Stat::make(__('Month Expenses'), 'EGP '.number_format((float) $monthExpenses, 2))
                 ->icon(Heroicon::OutlinedReceiptPercent)
-                ->description('Total out — '.today()->format('F'))
+                ->description(__('Total out — :month', ['month' => today()->translatedFormat('F')]))
                 ->descriptionColor('danger')
                 ->color('danger'),
         ];

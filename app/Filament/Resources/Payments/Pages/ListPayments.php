@@ -30,17 +30,17 @@ class ListPayments extends ListRecords
         $expenses = Payment::where('payment_direction', PaymentDirection::Out)->count();
 
         return [
-            'all' => Tab::make('All')
+            'all' => Tab::make(__('All'))
                 ->icon(Heroicon::OutlinedBanknotes)
                 ->badge($all),
 
-            'income' => Tab::make('Income')
+            'income' => Tab::make(__('Income'))
                 ->icon(Heroicon::OutlinedArrowTrendingUp)
                 ->badge($income)
                 ->badgeColor('success')
                 ->query(fn ($query) => $query->where('payment_direction', PaymentDirection::In)),
 
-            'expenses' => Tab::make('Expenses')
+            'expenses' => Tab::make(__('Expenses'))
                 ->icon(Heroicon::OutlinedArrowTrendingDown)
                 ->badge($expenses)
                 ->badgeColor('danger')

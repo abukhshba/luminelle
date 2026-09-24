@@ -22,42 +22,47 @@ class ReservationForm
     {
         return $schema
             ->components([
-                Section::make('Reservation Details')
+                Section::make(__('Reservation Details'))
                     ->columnSpanFull()
                     ->columns(2)
                     ->schema([
                         Select::make('customer_id')
+                            ->label(__('Customer'))
                             ->relationship('customer', 'name')
                             ->searchable()
                             ->preload()
                             ->required(),
                         DatePicker::make('reservation_date')
+                            ->label(__('Reservation Date'))
                             ->required()
                             ->default(today()),
                         DatePicker::make('delivery_date')
+                            ->label(__('Delivery Date'))
                             ->required(),
                         DatePicker::make('return_date')
+                            ->label(__('Return Date'))
                             ->required()
                             ->afterOrEqual('delivery_date'),
                         Textarea::make('notes')
+                            ->label(__('Notes'))
                             ->nullable()
                             ->columnSpanFull(),
                     ]),
 
-                Section::make('Dresses')
+                Section::make(__('Dresses'))
                     ->columnSpanFull()
                     ->columns(4)
                     ->schema([
                         Repeater::make('items')
                             ->relationship()
                             ->columnSpanFull()
-                            ->addActionLabel('Add Dress')
+                            ->addActionLabel(__('Add Dress'))
                             ->columns(3)
                             ->live()
                             ->afterStateUpdated(fn (Get $get, Set $set) => self::recalculate($get, $set))
                             ->schema([
                                 Select::make('dress_id')
-                                    ->label('Dress')
+                                    ->label(__('Dress'))
                                     ->relationship('dress', 'title')
                                     ->getOptionLabelFromRecordUsing(fn (Dress $record) => "{$record->code} — {$record->title}")
                                     ->searchable()
@@ -73,7 +78,7 @@ class ReservationForm
                                     ->columnSpan(2),
 
                                 TextInput::make('price')
-                                    ->label('Rent Amount')
+                                    ->label(__('Rent Amount'))
                                     ->numeric()
                                     ->suffix('EGP')
                                     ->required()
@@ -86,20 +91,20 @@ class ReservationForm
                                 Hidden::make('total')->dehydrated(),
 
                                 Textarea::make('notes')
-                                    ->label('Item Notes')
+                                    ->label(__('Item Notes'))
                                     ->nullable()
                                     ->columnSpanFull(),
                             ]),
 
                         TextInput::make('total_amount')
-                            ->label('Total Amount')
+                            ->label(__('Total Amount'))
                             ->numeric()
                             ->suffix('EGP')
                             ->disabled()
                             ->dehydrated(),
 
                         TextInput::make('down_payment')
-                            ->label('Down Payment')
+                            ->label(__('Down Payment'))
                             ->numeric()
                             ->suffix('EGP')
                             ->default(0)
@@ -107,14 +112,14 @@ class ReservationForm
                             ->afterStateUpdated(fn (Get $get, Set $set) => self::recalculate($get, $set)),
 
                         TextInput::make('remaining_amount')
-                            ->label('Remaining')
+                            ->label(__('Remaining'))
                             ->numeric()
                             ->suffix('EGP')
                             ->disabled()
                             ->dehydrated(),
 
                         TextInput::make('insurance_amount')
-                            ->label('Insurance Amount')
+                            ->label(__('Insurance Amount'))
                             ->numeric()
                             ->suffix('EGP')
                             ->default(0),

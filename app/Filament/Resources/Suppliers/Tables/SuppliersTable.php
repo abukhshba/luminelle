@@ -19,18 +19,22 @@ class SuppliersTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label(__('Name'))
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('phone'),
-                TextColumn::make('email'),
+                TextColumn::make('phone')
+                    ->label(__('Phone')),
+                TextColumn::make('email')
+                    ->label(__('Email')),
                 IconColumn::make('is_active')
+                    ->label(__('Active'))
                     ->boolean(),
                 TextColumn::make('supplier_bills_count')
                     ->counts('supplierBills')
-                    ->label('Bills'),
+                    ->label(__('Bills')),
                 TextColumn::make('dresses_count')
                     ->counts('dresses')
-                    ->label('Dresses'),
+                    ->label(__('Dresses')),
             ])
             ->filters([
                 TernaryFilter::make('is_active'),

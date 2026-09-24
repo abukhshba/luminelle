@@ -20,17 +20,20 @@ class PaymentCategoriesTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label(__('Name'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('direction')
+                    ->label(__('Direction'))
                     ->badge()
                     ->formatStateUsing(fn (PaymentDirection $state) => $state->getLabel())
                     ->color(fn (PaymentDirection $state) => $state->getColor()),
                 IconColumn::make('is_active')
+                    ->label(__('Active'))
                     ->boolean(),
                 TextColumn::make('payments_count')
                     ->counts('payments')
-                    ->label('Payments'),
+                    ->label(__('Payments')),
             ])
             ->filters([
                 SelectFilter::make('direction')

@@ -27,29 +27,38 @@ class PaymentsTable
         return $table
             ->columns([
                 TextColumn::make('code')
+                    ->label(__('Code'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('status')
+                    ->label(__('Status'))
                     ->badge()
                     ->sortable(),
                 TextColumn::make('date')
+                    ->label(__('Date'))
                     ->date()
                     ->sortable(),
                 TextColumn::make('payment_direction')
+                    ->label(__('Direction'))
                     ->badge(),
                 TextColumn::make('paymentCategory.name')
-                    ->label('Category'),
+                    ->label(__('Category')),
                 TextColumn::make('amount')
+                    ->label(__('Amount'))
                     ->money('EGP')
                     ->sortable(),
-                TextColumn::make('payment_method'),
-                TextColumn::make('customer.name'),
-                TextColumn::make('supplier.name'),
-                TextColumn::make('reservation.code'),
+                TextColumn::make('payment_method')
+                    ->label(__('Payment Method')),
+                TextColumn::make('customer.name')
+                    ->label(__('Customer')),
+                TextColumn::make('supplier.name')
+                    ->label(__('Supplier')),
+                TextColumn::make('reservation.code')
+                    ->label(__('Reservation')),
                 TextColumn::make('supplierBill.bill_number')
-                    ->label('Bill'),
+                    ->label(__('Bill')),
                 TextColumn::make('createdBy.name')
-                    ->label('By'),
+                    ->label(__('By')),
             ])
             ->filters([
                 SelectFilter::make('status')
@@ -72,7 +81,7 @@ class PaymentsTable
             ])
             ->recordActions([
                 Action::make('changeStatus')
-                    ->label('Change Status')
+                    ->label(__('Change Status'))
                     ->icon(Heroicon::OutlinedArrowPath)
                     ->color('gray')
                     ->form([

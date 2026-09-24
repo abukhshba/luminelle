@@ -26,22 +26,28 @@ class DressesTable
                     ->collection('images')
                     ->label(''),
                 TextColumn::make('code')
+                    ->label(__('Code'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('title')
+                    ->label(__('Title'))
                     ->searchable(),
                 TextColumn::make('category.name')
                     ->sortable()
-                    ->label('Category'),
+                    ->label(__('Category')),
                 TextColumn::make('supplier.name')
                     ->sortable()
-                    ->label('Supplier'),
-                TextColumn::make('size'),
-                TextColumn::make('color'),
+                    ->label(__('Supplier')),
+                TextColumn::make('size')
+                    ->label(__('Size')),
+                TextColumn::make('color')
+                    ->label(__('Color')),
                 TextColumn::make('rental_price')
+                    ->label(__('Rental Price'))
                     ->money('EGP')
                     ->sortable(),
                 TextColumn::make('status')
+                    ->label(__('Status'))
                     ->badge(),
             ])
             ->filters([

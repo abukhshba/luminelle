@@ -17,12 +17,15 @@ class PaymentCategoryForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label(__('Name'))
                     ->required()
                     ->maxLength(255),
                 Select::make('direction')
+                    ->label(__('Direction'))
                     ->options(PaymentDirection::class)
                     ->required(),
                 Toggle::make('is_active')
+                    ->label(__('Is Active'))
                     ->default(true),
             ]);
     }

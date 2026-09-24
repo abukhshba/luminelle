@@ -16,19 +16,25 @@ class SupplierForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label(__('Name'))
                     ->required(),
                 TextInput::make('phone')
+                    ->label(__('Phone'))
                     ->nullable(),
                 TextInput::make('email')
+                    ->label(__('Email'))
                     ->email()
                     ->nullable(),
                 Textarea::make('address')
+                    ->label(__('Address'))
                     ->nullable()
                     ->columnSpanFull(),
                 Textarea::make('notes')
+                    ->label(__('Notes'))
                     ->nullable()
                     ->columnSpanFull(),
                 Toggle::make('is_active')
+                    ->label(__('Is Active'))
                     ->default(true),
             ]);
     }

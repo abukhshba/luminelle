@@ -17,17 +17,20 @@ class CustomersTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label(__('Name'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('phone')
+                    ->label(__('Phone'))
                     ->searchable(),
-                TextColumn::make('email'),
+                TextColumn::make('email')
+                    ->label(__('Email')),
                 TextColumn::make('reservations_count')
                     ->counts('reservations')
-                    ->label('Reservations'),
+                    ->label(__('Reservations')),
                 TextColumn::make('payments_count')
                     ->counts('payments')
-                    ->label('Payments'),
+                    ->label(__('Payments')),
             ])
             ->filters([
                 //

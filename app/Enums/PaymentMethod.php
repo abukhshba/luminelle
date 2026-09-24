@@ -18,12 +18,12 @@ enum PaymentMethod: string implements HasLabel
     public function getLabel(): string
     {
         return match ($this) {
-            self::Cash => 'Cash',
-            self::Visa => 'Visa',
-            self::BankTransfer => 'Bank Transfer',
-            self::Instapay => 'Instapay',
-            self::Wallet => 'Wallet',
-            self::Other => 'Other',
+            self::Cash => __('Cash'),
+            self::Visa => __('Visa'),
+            self::BankTransfer => __('Bank Transfer'),
+            self::Instapay => __('Instapay'),
+            self::Wallet => __('Wallet'),
+            self::Other => __('Other'),
         };
     }
 }

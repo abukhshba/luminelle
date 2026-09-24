@@ -18,17 +18,21 @@ class CategoryForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label(__('Name'))
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true)
                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state ?? ''))),
                 TextInput::make('slug')
+                    ->label(__('Slug'))
                     ->required()
                     ->unique(ignoreRecord: true),
                 Textarea::make('description')
+                    ->label(__('Description'))
                     ->nullable()
                     ->columnSpanFull(),
                 Toggle::make('is_active')
+                    ->label(__('Is Active'))
                     ->default(true),
             ]);
     }

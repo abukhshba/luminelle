@@ -18,8 +18,8 @@ class TodaysReturnsWidget extends TableWidget
     public function table(Table $table): Table
     {
         return $table
-            ->heading("Today's Returns")
-            ->description('Reservations due back today')
+            ->heading(__("Today's Returns"))
+            ->description(__('Reservations due back today'))
             ->query(
                 fn (): Builder => Reservation::query()
                     ->with('customer')
@@ -28,18 +28,22 @@ class TodaysReturnsWidget extends TableWidget
             )
             ->columns([
                 TextColumn::make('code')
+                    ->label(__('Code'))
                     ->badge()
                     ->color('warning')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('customer.name')
+                    ->label(__('Customer'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('return_date')
+                    ->label(__('Return Date'))
                     ->date()
                     ->color('warning')
                     ->sortable(),
                 TextColumn::make('status')
+                    ->label(__('Status'))
                     ->badge(),
             ]);
     }

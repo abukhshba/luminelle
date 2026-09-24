@@ -19,12 +19,12 @@ enum ReservationStatus: string implements HasColor, HasLabel
     public function getLabel(): string
     {
         return match ($this) {
-            self::Pending => 'Pending',
-            self::Confirmed => 'Confirmed',
-            self::Delivered => 'Delivered',
-            self::Returned => 'Returned',
-            self::Completed => 'Completed',
-            self::Cancelled => 'Cancelled',
+            self::Pending => __('Pending'),
+            self::Confirmed => __('Confirmed'),
+            self::Delivered => __('Delivered'),
+            self::Returned => __('Returned'),
+            self::Completed => __('Completed'),
+            self::Cancelled => __('Cancelled'),
         };
     }
 

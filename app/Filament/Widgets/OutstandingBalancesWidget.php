@@ -24,16 +24,16 @@ class OutstandingBalancesWidget extends StatsOverviewWidget
             ->sum(fn (Reservation $reservation) => $reservation->remainingAmount());
 
         return [
-            Stat::make('Outstanding Supplier Bills', 'EGP '.number_format($unpaidBills, 2))
+            Stat::make(__('Outstanding Supplier Bills'), 'EGP '.number_format($unpaidBills, 2))
                 ->icon(Heroicon::OutlinedDocumentText)
-                ->description('Remaining balance owed to suppliers')
+                ->description(__('Remaining balance owed to suppliers'))
                 ->descriptionIcon(Heroicon::OutlinedTruck)
                 ->descriptionColor('warning')
                 ->color('warning'),
 
-            Stat::make('Outstanding Reservation Balances', 'EGP '.number_format($unpaidReservations, 2))
+            Stat::make(__('Outstanding Reservation Balances'), 'EGP '.number_format($unpaidReservations, 2))
                 ->icon(Heroicon::OutlinedBanknotes)
-                ->description('Remaining balance owed by customers')
+                ->description(__('Remaining balance owed by customers'))
                 ->descriptionIcon(Heroicon::OutlinedUsers)
                 ->descriptionColor('warning')
                 ->color('warning'),

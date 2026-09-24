@@ -20,6 +20,30 @@ class CreateReservation extends CreateRecord
 
     private float $insuranceAmount = 0;
 
+    public function mount(): void
+    {
+        parent::mount();
+
+        if (request()->filled('dress_id')) {
+            $dressId = (int) request('dress_id');
+            $price = (float) request('price', 0);
+
+            $this->form->fill([
+                'items' => [[
+                    'dress_id' => $dressId,
+                    'price' => $price,
+                    'discount' => 0,
+                    'total' => $price,
+                    'notes' => null,
+                ]],
+                'total_amount' => $price,
+                'down_payment' => 0,
+                'remaining_amount' => $price,
+                'subtotal' => $price,
+            ]);
+        }
+    }
+
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         $this->downPayment = (float) ($data['down_payment'] ?? 0);

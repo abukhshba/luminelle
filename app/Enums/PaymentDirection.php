@@ -15,8 +15,8 @@ enum PaymentDirection: string implements HasColor, HasLabel
     public function getLabel(): string
     {
         return match ($this) {
-            self::In => 'Income',
-            self::Out => 'Expense',
+            self::In => __('Income'),
+            self::Out => __('Expense'),
         };
     }
 

@@ -24,7 +24,17 @@ class UserResource extends Resource
 
     public static function getNavigationGroup(): string|\UnitEnum|null
     {
-        return 'System';
+        return __('System');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('User');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Users');
     }
 
     public static function form(Schema $schema): Schema

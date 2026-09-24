@@ -26,36 +26,42 @@ class ReservationsTable
         return $table
             ->columns([
                 TextColumn::make('code')
+                    ->label(__('Code'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('customer.name')
+                    ->label(__('Customer'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('delivery_date')
+                    ->label(__('Delivery Date'))
                     ->date()
                     ->sortable(),
                 TextColumn::make('return_date')
+                    ->label(__('Return Date'))
                     ->date(),
                 TextColumn::make('total_amount')
+                    ->label(__('Total Amount'))
                     ->money('EGP'),
                 TextColumn::make('paid_amount')
                     ->money('EGP')
-                    ->label('Paid')
+                    ->label(__('Paid'))
                     ->getStateUsing(fn (Reservation $record) => $record->paidAmount()),
                 TextColumn::make('remaining')
                     ->money('EGP')
-                    ->label('Remaining')
+                    ->label(__('Remaining'))
                     ->getStateUsing(fn (Reservation $record) => $record->remainingAmount()),
                 TextColumn::make('payment_status')
                     ->badge()
-                    ->label('Payment')
+                    ->label(__('Payment'))
                     ->getStateUsing(fn (Reservation $record) => $record->paymentStatus())
                     ->formatStateUsing(fn (PaymentStatus $state) => $state->getLabel())
                     ->color(fn (PaymentStatus $state) => $state->getColor()),
                 TextColumn::make('status')
+                    ->label(__('Status'))
                     ->badge(),
                 TextColumn::make('createdBy.name')
-                    ->label('Created By'),
+                    ->label(__('Created By')),
             ])
             ->filters([
                 SelectFilter::make('status')
@@ -72,7 +78,7 @@ class ReservationsTable
             ])
             ->recordActions([
                 Action::make('changeStatus')
-                    ->label('Change Status')
+                    ->label(__('Change Status'))
                     ->icon(Heroicon::OutlinedArrowPath)
                     ->color('gray')
                     ->form([

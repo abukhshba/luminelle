@@ -19,33 +19,37 @@ class SupplierBillsTable
         return $table
             ->columns([
                 TextColumn::make('bill_number')
+                    ->label(__('Bill Number'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('supplier.name')
+                    ->label(__('Supplier'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('total_amount')
+                    ->label(__('Total Amount'))
                     ->money('EGP')
                     ->sortable(),
                 TextColumn::make('paid_amount')
-                    ->label('Paid')
+                    ->label(__('Paid'))
                     ->money('EGP')
                     ->getStateUsing(fn (SupplierBill $record) => $record->paidAmount()),
                 TextColumn::make('remaining_amount')
-                    ->label('Remaining')
+                    ->label(__('Remaining'))
                     ->money('EGP')
                     ->getStateUsing(fn (SupplierBill $record) => $record->remainingAmount()),
                 TextColumn::make('payment_status')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->badge()
                     ->getStateUsing(fn (SupplierBill $record) => $record->paymentStatus())
                     ->formatStateUsing(fn (PaymentStatus $state) => $state->getLabel())
                     ->color(fn (PaymentStatus $state) => $state->getColor()),
                 TextColumn::make('bill_date')
+                    ->label(__('Bill Date'))
                     ->date()
                     ->sortable(),
                 TextColumn::make('createdBy.name')
-                    ->label('Created By'),
+                    ->label(__('Created By')),
             ])
             ->filters([
                 //

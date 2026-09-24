@@ -20,14 +20,17 @@ class CategoriesTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label(__('Name'))
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('slug'),
+                TextColumn::make('slug')
+                    ->label(__('Slug')),
                 IconColumn::make('is_active')
+                    ->label(__('Active'))
                     ->boolean(),
                 TextColumn::make('dresses_count')
                     ->counts('dresses')
-                    ->label('Dresses'),
+                    ->label(__('Dresses')),
             ])
             ->filters([
                 //

@@ -24,7 +24,17 @@ class CustomerResource extends Resource
 
     public static function getNavigationGroup(): string|\UnitEnum|null
     {
-        return 'People';
+        return __('People');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Customer');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Customers');
     }
 
     public static function form(Schema $schema): Schema

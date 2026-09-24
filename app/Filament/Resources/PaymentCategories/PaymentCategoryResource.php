@@ -24,7 +24,17 @@ class PaymentCategoryResource extends Resource
 
     public static function getNavigationGroup(): string|\UnitEnum|null
     {
-        return 'Finance';
+        return __('Finance');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Payment Category');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Payment Categories');
     }
 
     public static function form(Schema $schema): Schema

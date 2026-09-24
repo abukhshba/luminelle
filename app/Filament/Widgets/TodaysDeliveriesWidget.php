@@ -18,8 +18,8 @@ class TodaysDeliveriesWidget extends TableWidget
     public function table(Table $table): Table
     {
         return $table
-            ->heading("Today's Deliveries")
-            ->description('Reservations being delivered today')
+            ->heading(__("Today's Deliveries"))
+            ->description(__('Reservations being delivered today'))
             ->query(
                 fn (): Builder => Reservation::query()
                     ->with('customer')
@@ -28,17 +28,21 @@ class TodaysDeliveriesWidget extends TableWidget
             )
             ->columns([
                 TextColumn::make('code')
+                    ->label(__('Code'))
                     ->badge()
                     ->color('info')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('customer.name')
+                    ->label(__('Customer'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('total_amount')
+                    ->label(__('Total Amount'))
                     ->money('EGP')
                     ->color('success'),
                 TextColumn::make('status')
+                    ->label(__('Status'))
                     ->badge(),
             ]);
     }

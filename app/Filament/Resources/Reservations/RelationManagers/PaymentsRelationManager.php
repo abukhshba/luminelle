@@ -74,7 +74,7 @@ class PaymentsRelationManager extends RelationManager
                 TextColumn::make('payment_direction')
                     ->badge(),
                 TextColumn::make('paymentCategory.name')
-                    ->label('Category'),
+                    ->label(__('Category')),
                 TextColumn::make('payment_method'),
             ])
             ->filters([
@@ -97,7 +97,7 @@ class PaymentsRelationManager extends RelationManager
             ])
             ->recordActions([
                 Action::make('changeStatus')
-                    ->label('Change Status')
+                    ->label(__('Change Status'))
                     ->icon(Heroicon::OutlinedArrowPath)
                     ->color('gray')
                     ->form([

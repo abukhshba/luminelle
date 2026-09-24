@@ -18,11 +18,11 @@ enum DressStatus: string implements HasColor, HasLabel
     public function getLabel(): string
     {
         return match ($this) {
-            self::Available => 'Available',
-            self::Reserved => 'Reserved',
-            self::Rented => 'Rented',
-            self::Maintenance => 'Maintenance',
-            self::Inactive => 'Inactive',
+            self::Available => __('Available'),
+            self::Reserved => __('Reserved'),
+            self::Rented => __('Rented'),
+            self::Maintenance => __('Maintenance'),
+            self::Inactive => __('Inactive'),
         };
     }
 
